@@ -781,7 +781,8 @@ function updateToolTip(x_property,y_property, circlesGroup) {
               .classed("active", true)
               .classed("inactive", false); 
         }
-      else {
+      }
+      else 
         // replaces y_property with value
         y_property = value;
         yLinearScale = yScale(data, y_property);  
