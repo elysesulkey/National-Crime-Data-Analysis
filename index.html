@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Latitude Analysis Dashboard</title>
+
+  <!-- Boostrap Stylesheet -->
+  <link rel="stylesheet" href="Resources/Assets/CSS/bootstrap.min.css" media="screen">
+    <!-- Personal CSS stylesheet -->
+  <link rel="stylesheet" href="Resources/Assets/CSS/style.css" media="screen">
+
+</head>
+
+<body>
+<!-- Naviation Bar at top of page -->
+  <div class="navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" style="background-color: teal;" href="index.html">Latitude</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Plots
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="Resources/Assets/Visualizations/temp.html">Max Temperature</a></li>
+                  <li><a class="dropdown-item" href="Resources/Assets/Visualizations/humidity.html">Humidity</a></li>
+                    <li><a class="dropdown-item" href="Resources/Assets/Visualizations/cloudiness.html">Cloudiness</a></li>
+                  <li><a class="dropdown-item" href="Resources/Assets/Visualizations/wind.html">Wind Speed</a></li>
+                </ul>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Resources/Assets/comparisons.html">Comparison</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Resources/Assets/data.html">Data</a>
+          </li>
+          
+          
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+</div> 
+<!-- End of Navagation Bar-->  
+
+<!-- 
+  <div class= col-md-8>
+      <div class='row'>
+      <div class='col-2'></div>    
+       <style>.btn-success{font-size: 1.1cm; background-color: rgb(2, 145, 133);
+<div class = col-md-4>
+<div class=col-7></div>
+-->  
+
+
+  <!-- Start of landing page content -->
+   <!-- Start of container -->
+   <div class="container">
+    <section class="row">
+      <div class="col-lg-8 col-md-8 col-sm-6 col-xm-12">
+        <article class="description-content">
+          <h1 class="description-header">Summary: Latitude vs. X</h1>
+          <hr class="description-hr" />
+          <img src="Resources/Assets/Images/Fig1.png" alt="Latitude vs. Max Temperature Graph" id="description-image" />
+          <p>The purpose of this project was to analyze how weather changes as you get closer to the equator. To
+            accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500
+            cities.</p>
+          <p>After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude.
+            Factors we looked at included: temperature, cloudiness, wind speed, and humidity. This site provides the
+            source data and visualizations created as part of the analysis, as well as explanations and descriptions of
+            any trends and correlations witnessed.</p>
+        </article>
+      </div>
+      <!-- Start of Visualizations Right sidebar -->
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xm-12">
+        <section id="imageNav-area">
+          <div class="imageNav-content">
+            <h2 class="imageNav-header">Visualizations</h2>
+            <hr />
+            <div id="images">
+              <div class="row" id="outer">
+                <div>
+                  <h3>Latitude vs. Max Temperature</h3>
+                  <a href="Resources/Assets/Visualizations/temp.html"><img src="Resources/Assets/Images/Fig1.png"
+                      alt="Latitude vs. Max Temperature" class="imageNav-photo"></a>
+                </div>
+                <div>
+                    <h3>Latitude vs. Humidity</h3>
+                  <a href="Resources/Assets/Visualizations/humidity.html"><img src="Resources/Assets/Images/Fig2.png" 
+                    alt="Latitude vs. Humidity" class="imageNav-photo"></a>
+                </div>
+
+                <div>
+                    <h3>Latitude vs. Cloudiness</h3>
+                  <a href="Resources/Assets/Visualizations/cloudiness.html"><img src="Resources/Assets/Images/Fig3.png"
+                      alt="Latitude vs. Cloudiness" class="imageNav-photo"></a>
+                </div>
+                <div>
+                    <h3>Latitude vs. Wind Speed</h3>
+                  <a href="Resources/Assets/Visualizations/wind.html"><img src="Resources/Assets/Images/Fig4.png" 
+                    alt="Latitude vs. Wind Speed" class="imageNav-photo"></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- End of the Visualizations sidebar -->
+    </section>
+  </div>
+  <!-- End of container -->
+
+  <!-- Start of footer -->
+  <footer class="footer navbar-fixed-bottom">
+    <div class="two-toned-footer-color"></div>
+    <p class="text-muted text-muted-footer text-center">
+      &copy; Copyright ESulkey 2021
+    </p>
+  </footer>
+  <!-- End of footer -->
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Popper JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
