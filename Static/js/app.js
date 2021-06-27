@@ -295,7 +295,7 @@ function updateToolTip(x_property,y_property, circlesGroup) {
     d.rape = +d.rape;
     d.robbery = +d.robbery;
     d.aggravatedassault = + d.aggravatedassault;
-    d.propertycrime = +d.propertycrime:
+    d.propertycrime = +d.propertycrime;
     d.burglary = +d.burglary;
     d.larcenytheft = +d.larcenytheft;
     d.motorvehicletheft = +d.motorvehicletheft;
@@ -604,7 +604,7 @@ function updateToolTip(x_property,y_property, circlesGroup) {
             .classed("inactive", true);
           aggravatedassaultLabel
             .classed("active", true)
-            .classed("inactive", false; 
+            .classed("inactive", false); 
           propertycrimeLabel
             .classed("active", false)
             .classed("inactive", true);
@@ -749,7 +749,7 @@ function updateToolTip(x_property,y_property, circlesGroup) {
             .classed("active", false)
             .classed("inactive", true); 
         }
-        else (x_property == "Arson"){ 
+        else { 
             violentcrimeLabel
               .classed("active", false)
               .classed("inactive", true);
@@ -780,10 +780,8 @@ function updateToolTip(x_property,y_property, circlesGroup) {
             arsonLabel
               .classed("active", true)
               .classed("inactive", false); 
-          }
-       }
-      } 
-      else
+        }
+      else {
         // replaces y_property with value
         y_property = value;
         yLinearScale = yScale(data, y_property);  
