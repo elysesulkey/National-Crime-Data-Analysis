@@ -223,7 +223,10 @@ function updateToolTip(x_property,y_property, circlesGroup) {
   var label;
  
   // Set x & y axis label on tooltip 
-  if (x_property === "Murder") {
+  if (x_property === "Violent Crime") {
+    label = "Violent Crime:";
+  }
+  else if (x_property === "Murder") {
     label = "Murder:";
   }
   else if (x_property === "Rape") {
@@ -247,13 +250,10 @@ function updateToolTip(x_property,y_property, circlesGroup) {
   else if (x_property === "Motor Vehicle Theft") {
     label = "Motor Vehicle Theft:";
   }
-  else if (x_property === "Arson") {
+  else {
     label = "Arson:";
   }
-  else {
-    label = "Violent Crime:";
-  }
- 
+  
   if (y_property === "Population") {
     ylabel = "Population:";
   }
@@ -288,7 +288,7 @@ function updateToolTip(x_property,y_property, circlesGroup) {
 }
 
   // Import Data
-  d3.csv("./data/cleaned_crime_data.json").then(function (data) {
+  d3.csv("../data/cleaned_crime_data.csv").then(function (data) {
   data.forEach(d => {
     d.violentcrime = +d.violentcrime;
     d.murder = +d.murder;
