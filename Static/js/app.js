@@ -5,7 +5,7 @@ function optionChanged(Year){
     //console.log(selectedID);
  
     // Read the json file for the data
-    d3.json("data/cleaned_crime_data.json").then((data) => {
+    d3.json("./data/cleaned_crime_data.json").then((data) => {
  
     //console.log(data);
  
@@ -288,7 +288,7 @@ function updateToolTip(x_property,y_property, circlesGroup) {
 }
 
   // Import Data
-  d3.csv("Static/data/cleaned_crime_data.json").then(function (data) {
+  d3.csv("./data/cleaned_crime_data.json").then(function (data) {
   data.forEach(d => {
     d.violentcrime = +d.violentcrime;
     d.murder = +d.murder;
