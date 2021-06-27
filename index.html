@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Latitude Analysis Dashboard</title>
+  <title>Crime Analysis Dashboard</title>
 
-  <!-- Boostrap Stylesheet -->
-  <link rel="stylesheet" href="Resources/Assets/CSS/bootstrap.min.css" media="screen">
+  <!-- D3 Stylesheet -->
+  <link rel="stylesheet" href="Static/css/d3Style.css" media="screen">
     <!-- Personal CSS stylesheet -->
-  <link rel="stylesheet" href="Resources/Assets/CSS/style.css" media="screen">
+  <link rel="stylesheet" href="Static/css/style.css" media="screen">
 
 </head>
 
@@ -20,48 +20,21 @@
 <!-- Naviation Bar at top of page -->
   <div class="navigation">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" style="background-color: teal;" href="index.html">Latitude</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Plots
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="Resources/Assets/Visualizations/temp.html">Max Temperature</a></li>
-                  <li><a class="dropdown-item" href="Resources/Assets/Visualizations/humidity.html">Humidity</a></li>
-                    <li><a class="dropdown-item" href="Resources/Assets/Visualizations/cloudiness.html">Cloudiness</a></li>
-                  <li><a class="dropdown-item" href="Resources/Assets/Visualizations/wind.html">Wind Speed</a></li>
-                </ul>
-              </li>
+        <a class="navbar-brand" style="background-color: gray;" href="index.html">Home</a>
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="Resources/Assets/comparisons.html">Comparison</a>
+              <a class="nav-link" href="Static/html/visualizations.html">Visualizations</a>
             </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Resources/Assets/data.html">Data</a>
-          </li>
-          
-          
-        </ul>
-       
-      </div>
-    </div>
-  </nav>
-</div> 
+            <li class="nav-item">
+              <a class="nav-link" href="Static/html/visualizations.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Static/html/visualizations.html">Resources</a>
+            </li>
+          </ul>
+    </nav>
+  </div> 
 <!-- End of Navagation Bar-->  
-
-<!-- 
-  <div class= col-md-8>
-      <div class='row'>
-      <div class='col-2'></div>    
-       <style>.btn-success{font-size: 1.1cm; background-color: rgb(2, 145, 133);
-<div class = col-md-4>
-<div class=col-7></div>
--->  
-
 
   <!-- Start of landing page content -->
    <!-- Start of container -->
@@ -81,46 +54,7 @@
             any trends and correlations witnessed.</p>
         </article>
       </div>
-      <!-- Start of Visualizations Right sidebar -->
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xm-12">
-        <section id="imageNav-area">
-          <div class="imageNav-content">
-            <h2 class="imageNav-header">Visualizations</h2>
-            <hr />
-            <div id="images">
-              <div class="row" id="outer">
-                <div>
-                  <h3>Latitude vs. Max Temperature</h3>
-                  <a href="Resources/Assets/Visualizations/temp.html"><img src="Resources/Assets/Images/Fig1.png"
-                      alt="Latitude vs. Max Temperature" class="imageNav-photo"></a>
-                </div>
-                <div>
-                    <h3>Latitude vs. Humidity</h3>
-                  <a href="Resources/Assets/Visualizations/humidity.html"><img src="Resources/Assets/Images/Fig2.png" 
-                    alt="Latitude vs. Humidity" class="imageNav-photo"></a>
-                </div>
-
-                <div>
-                    <h3>Latitude vs. Cloudiness</h3>
-                  <a href="Resources/Assets/Visualizations/cloudiness.html"><img src="Resources/Assets/Images/Fig3.png"
-                      alt="Latitude vs. Cloudiness" class="imageNav-photo"></a>
-                </div>
-                <div>
-                    <h3>Latitude vs. Wind Speed</h3>
-                  <a href="Resources/Assets/Visualizations/wind.html"><img src="Resources/Assets/Images/Fig4.png" 
-                    alt="Latitude vs. Wind Speed" class="imageNav-photo"></a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-      </div>
-      <!-- End of the Visualizations sidebar -->
-    </section>
-  </div>
-  <!-- End of container -->
-
+      
   <!-- Start of footer -->
   <footer class="footer navbar-fixed-bottom">
     <div class="two-toned-footer-color"></div>
