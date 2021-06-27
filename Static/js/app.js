@@ -5,7 +5,7 @@ function optionChanged(Year){
     //console.log(selectedID);
  
     // Read the json file for the data
-    d3.json("data/cleaned_crime_data.csv").then((data) => {
+    d3.json("data/cleaned_crime_data.json").then((data) => {
  
     //console.log(data);
  
@@ -288,7 +288,7 @@ function updateToolTip(x_property,y_property, circlesGroup) {
 }
 
   // Import Data
-  d3.csv("Static/data/cleaned_crime_data.csv").then(function (data) {
+  d3.csv("Static/data/cleaned_crime_data.json").then(function (data) {
   data.forEach(d => {
     d.violentcrime = +d.violentcrime;
     d.murder = +d.murder;
@@ -342,70 +342,70 @@ function updateToolTip(x_property,y_property, circlesGroup) {
     .classed("active", true)
     .text("Violent Crime");
 
-  var MurderLabel = labelsGroup.append("text")
+  var murderLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 30)
     .attr("value", "Murder")
     .classed("inactive", true)
     .text("Murder");
 
-    var RapeLabel = labelsGroup.append("text")
+    var rapeLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
     .attr("value", "Rape") 
     .classed("inactive", true)
     .text("Rape");  
    
-    var RobberyLabel = labelsGroup.append("text")
+    var robberyLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
     .attr("value", "Robbery") 
     .classed("inactive", true)
     .text("Robbery"); 
 
-    var AggravatedAssaultLabel = labelsGroup.append("text")
+    var aggravatedassaultLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
     .attr("value", "Aggravated Assault") 
     .classed("inactive", true)
     .text("AggravatedAssault"); 
 
-    var PropertyCrimeLabel = labelsGroup.append("text")
+    var propertycrimeLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
     .attr("value", "Property Crime") 
     .classed("inactive", true)
     .text("Property Crime"); 
 
-    var BurglaryLabel = labelsGroup.append("text")
+    var burglaryLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
     .attr("value", "Burglary") 
     .classed("inactive", true)
     .text("Burglary"); 
 
-    var LarcenyTheftLabel = labelsGroup.append("text")
+    var larcenytheftLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
     .attr("value", "Larceny Theft") 
     .classed("inactive", true)
     .text("Larceny Theft"); 
 
-    var MotorVehicleTheft = labelsGroup.append("text")
+    var motorvehicletheftLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
     .attr("value", "Motor Vehicle Theft") 
     .classed("inactive", true)
     .text("Motor Vehicle Theft"); 
 
-    var ArsonLabel = labelsGroup.append("text")
+    var arsonLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
     .attr("value", "Arson") 
     .classed("inactive", true)
     .text("Arson"); 
 
-    var YearLabel = labelsGroup.append("text")
+    var yearLabel = labelsGroup.append("text")
     .attr("transform","rotate(-90)")
     .attr("x", (margin.left) * 2.5)
     .attr("y", 0 - (height -60))
