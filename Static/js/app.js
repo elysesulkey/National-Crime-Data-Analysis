@@ -1,5 +1,5 @@
 // Function for change on dropdown menu
-function optionChanged(Year){
+function optionChanged(selectedID){
 
     // Check if value selected in dropdown
     //console.log(selectedID);
