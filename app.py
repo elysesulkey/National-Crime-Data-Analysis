@@ -21,7 +21,7 @@ class Note(db.Model):
 
 @app.route('/')
 def index():
-    return 'FUCK THIS SHIT'
+    return 'This is working'
 
 @app.route('/api/notes/postgres')
 def note_postgres():
