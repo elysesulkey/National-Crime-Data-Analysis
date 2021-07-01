@@ -1,42 +1,73 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head>
+  <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <title>Crime Analysis Dashboard</title>
-
-  <!-- D3 Stylesheet -->
-  <link rel="stylesheet" href="../css/d3Style.css" media="screen">
-    <!-- Personal CSS stylesheet -->
-  <link rel="stylesheet" href="../css/style.css" media="screen">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-</head>
-
-<body>
-<!-- Naviation Bar at top of page -->
-  <div class="navigation">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" style="background-color: gray;" href="../../index.html">Home</a>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="visualizations.html">Visualizations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="aboutus.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="resources.html">Resources</a>
-            </li>
-          </ul>
-    </nav>
-  </div> 
-<!-- End of Navagation Bar-->  
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>Crime Analysis Dashboard</title>
+  
+    <!-- D3 Stylesheet -->
+    <link rel="stylesheet" href="Static/css/d3Style.css" media="screen">
+      <!-- Personal CSS stylesheet -->
+    <link rel="stylesheet" href="Static/css/style.css" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  * {box-sizing: border-box}
+  body {font-family: Arial, Helvetica, sans-serif;}
+  
+  .navbar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+  }
+  
+  .navbar a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 25%; /* Four links of equal widths */
+    text-align: center;
+  }
+  
+  .navbar a:hover {
+    background-color: #000;
+  }
+  
+  .navbar a.active {
+    background-color: #04AA6D;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+  </style>
+  <body>
+  
+  
+  <div class="navbar">
+    <a class="navbar-brand" style="background-color: gray;" href="index.html">Home</a>
+    <a class="nav-link" href="visualizations.html">Visualizations</a>
+    <a class="nav-link" href="aboutus.html">About Us</a>
+    <a class="nav-link" href="resources.html">Resources</a>
+  </div>
+  
+  </body>
+  </html> 
+  <!-- Naviation Bar at top of page -->
   <!-- Start of landing page content -->
    <!-- Start of container -->
    <div class="container">
