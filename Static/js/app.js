@@ -1,28 +1,31 @@
 // Function for change on dropdown menu
-function optionChanged(selectedID){
+function optionChanged(selectedReport){
 
     // Check if value selected in dropdown
-    //console.log(selectedID);
+    //console.log(selectedReport);
  
     // Read the json file for the data
-    d3.json("../data/cleaned_crime_data.json").then((data) => {
+    d3.json("../data/state_year_avg.json").then((data) => {
  
     //console.log(data);
  
     // Clear dropdown
-    d3.select("#selDataset").html("");   
+    d3.select("#selectReport").html("");   
     
     // Select metadata array and append item ID, adds ID to dropdown
-    data.metadata.forEach(item =>
+    data.forEach(item =>
          {
         //console.log(item.id);
-         d3.select ("#selDataset").append('option').attr('value', item.id).text(item.id);
+         d3.select ("#selectedYear").append('option').attr('value', item.Year).text(item.Year;
+          d3.select ("#selectedState").append('option').attr('value', item.State).text(item.State;
          });
     // Selected value passed
-    d3.select("#selDataset").node().value = selectedID;
+    d3.select("#selectedYear").node().value = selectedYear;
+    d3.select("#selectedState").node().value = selectedState;
     
     // Filter Metadata for selected ID from dropdown
-    const idMetadata = data.metadata.filter(item=> (item.id == Year));
+    const Report = data.filter(item=> (item.Year == Year));
+    const Report2 = data.filter(item=> (item.State == State));
        // {
        //    console.log("------------------------")
        //    console.log(item);
