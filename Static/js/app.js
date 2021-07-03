@@ -16,8 +16,8 @@ function optionChanged(selectedReport){
     data.forEach(item =>
          {
         //console.log(item.id);
-         d3.select ("#selectedYear").append('option').attr('value', item.Year).text(item.Year;
-          d3.select ("#selectedState").append('option').attr('value', item.State).text(item.State;
+         d3.select ("#selectedYear").append('option').attr('value', item.Year).text(item.Year);
+          d3.select ("#selectedState").append('option').attr('value', item.State).text(item.State);
          });
     // Selected value passed
     d3.select("#selectedYear").node().value = selectedYear;
