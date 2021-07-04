@@ -39,18 +39,13 @@ function optionChanged(selectedYear, selectedState){
     
     // Filter data for selected year and state
     const AveragesReport = data.filter(item=> (item.Year == selectedYear, item.State == selectedState));
-       // {
-       //    console.log("------------------------")
-       //    console.log(item);
-       //    console.log(item.id);
-          
-       // });
-    // Check the metadata loaded for selected ID
-    //console.log(AveragesReport);
+ 
+    // Check the loaded report data
+    console.log(AveragesReport);
     
     const panelDisplay = d3.select("#ReportInfo");
     panelDisplay.html("");
-    Object.entries(AveragesReport).forEach(item=> 
+    Object.entries(AveragesReport[0]).forEach(item=> 
        {
           panelDisplay.append("p").text(`${item[0]}: ${item[1]}`)
        });
@@ -61,7 +56,11 @@ function optionChanged(selectedYear, selectedState){
  optionChanged(2018, 'ARIZONA')
  
  // Event on change takes the value and calls the function during dropdown selection
- d3.select("#selectedYear", "#selectedState").on('change',() => {
+ d3.select("#selectedYear").on('change',() => {
  optionChanged(d3.event.target.value);
- 
+ });
+
+ d3.select("#selectedState").on('change',() => {
+  optionChanged(d3.event.target.value);
+
  });
