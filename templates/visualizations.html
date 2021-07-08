@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- D3 Stylesheet -->
-  <link rel="stylesheet" href="../Static/css/d3Style.css" media="screen">
+  <link rel="stylesheet" href="/static/css/d3Style.css" media="screen">
 </head>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,14 +55,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <body>
 
   <div class="navbar">
-    <a class="navbar-brand" style="background-color: gray;" href="../index.html">Home</a>
-    <a class="nav-link" href="visualizations.html">Visualizations</a>
-    <a class="nav-link" href="aboutus.html">About Us</a>
-    <a class="nav-link" href="resources.html">Resources</a>
+    <a class="navbar-brand" style="background-color: gray;" href="/">Home</a>
+    <a class="nav-link" href="/visualizations">Visualizations</a>
+    <a class="nav-link" href="/aboutus">About Us</a>
+    <a class="nav-link" href="/resources">Resources</a>
+
   </div>
-  
-  </body>
-  </html> 
+ 
 <!-- Naviation Bar at top of page -->
 
 <!-- End of Navagation Bar-->  
@@ -77,9 +76,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <div class="col-md-2">
         <div class="well">
           <h5>Year</h5>
-          <select id="selectedYear" onchange="OptionMenu(this.value)"></select>
+          <select id="selectedYear"></select>
           <h5>State</h5>
-          <select id="selectedState" onchange="OptionMenu(this.value)"></select>
+          <select id="selectedState"></select>
         </div>
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -104,8 +103,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="../Static/js/app.js"></script>
-  <script src="../Static/data/state_year_avg.json"></script>
+  <script src="/static/js/app.js"></script>
   
 </body>
 

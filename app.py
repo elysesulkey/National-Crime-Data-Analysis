@@ -19,8 +19,8 @@ class Note(db.Model):
     content = db.Column(db.String)
 
 
-@app.route('/')
-def index():
+@app.route('/aboutus')
+def aboutus():
     return render_template("aboutus.html")
 
 
@@ -28,12 +28,12 @@ def index():
 def index():
     return render_template("index.html")
 
- @app.route('/')
-def index():
+@app.route('/resources')
+def resources():
     return render_template("resources.html")   
 
-@app.route('/')
-def index():
+@app.route('/visualizations')
+def visualizations():
     return render_template("visualizations.html")
 
 
