@@ -85,12 +85,15 @@ function OptionMenu(selectedYear, selectedState) {
  // Gauge Chart to plot weekly washing frequency 
  const guageDisplay = d3.select("#gauge");
  guageDisplay.html(""); 
+
  var ReportTotalCrime = CrimeAverages.reduce((a,b) => a + b, 0);
  console.log(ReportTotalCrime)
+
  var PopulationLine = Object.entries(AveragesReport[0]).slice(2,3)
- var ReportPopulation = PopulationLine.map(element => element[1])
+ var ReportPopulation = (PopulationLine.map(element => element[1])).reduce((a,b) => a + b, 0);
  console.log(ReportPopulation)
- const crimefreq = 
+ 
+ const crimefreq = (ReportTotalCrime / ReportPopulation) * 100
  console.log(crimefreq)
  
  const guageData = [
@@ -101,19 +104,13 @@ function OptionMenu(selectedYear, selectedState) {
       type: "indicator",
       mode: "gauge+number",     
        gauge: {
-       axis: { range: [0,9] },
+       axis: { range: [0,100] },
        bar: { color: "#e6e6fa" },
        steps: [
-          { range: [0, 1], color: "#d8bfd8" },
-          { range: [1, 2], color: "#dda0dd" },
-          { range: [2, 3], color: "#da70d6" },
-          { range: [3, 4], color: "#ee82ee" },
-          { range: [4, 5], color: "#ff00ff" },
-          { range: [5, 6], color: "#ba55d3" },
-          { range: [6, 7], color: "#9932cc" },
-          { range: [7, 8], color: "#9400d3" },
-          { range: [8, 9], color: "#8a2be2" }
-                
+          { range: [0, 25], color: "#d8bfd8" },
+          { range: [25, 50], color: "#dda0dd" },
+          { range: [50, 75], color: "#da70d6" },
+          { range: [75, 100], color: "#ee82ee" }     
         ],
        threshold: {
           value: crimefreq
