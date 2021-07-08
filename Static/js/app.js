@@ -48,34 +48,31 @@ function OptionMenu(selectedYear, selectedState) {
     AverageEntries = AverageEntries.sort()
     console.log(AverageEntries)
 
-    //var Crime = AveragesReport[0]("#Murder").slice(3,13);
-    var CrimeAverages = AverageEntries.forEach(element => console.log(element[1]));
-
+    var CrimeAverages = AverageEntries.map(element => element[1])
     console.log(CrimeAverages)
-    //Crime = Crime.reverse();
-    var CrimeType = AverageEntries.forEach(element => console.log(element[0]));
+  
+    var CrimeType = AverageEntries.map(element => element[0]);
     console.log(CrimeType)
-    //CrimeType = CrimeType.reverse();
 
     // Y axis of bar chart
-    const yAxis = Crime.map(item => item);
+    const yAxis = CrimeType.map(item => item);
     
     // Define the layout and trace object, edit color and orientation
        const trace = {
        y: yAxis,
-       x: YearAverages,
+       x: CrimeAverages,
        type: 'bar',
        orientation: "h",
        text:  CrimeType,
        marker: {
           color: "#9370db",
           line: {
-            width: 3
+            width: 1
           }
         }
        },
        layout = {
-       title: 'Average Crime by Type',
+       title: 'Average Reported Crime by Type',
        xaxis: {title: 'Average # Crimes Committed'},
        yaxis: {title: 'Crime Type'}
        };
