@@ -2,12 +2,12 @@
 function OptionMenu(selectedYear, selectedState) {
 
     // Check if value selected in dropdown
-    console.log(selectedYear, selectedState);
+    //console.log(selectedYear, selectedState);
   
     // Read the json file for the data
     d3.json("/static/data/state_year_avg.json").then((data) => {
   
-    console.log(data);
+    //console.log(data);
       
     // Select year & append to dropdown
     let YearOption = [...new Set(data.map(item => item.Year))];
@@ -41,23 +41,21 @@ function OptionMenu(selectedYear, selectedState) {
        {
           panelDisplay.append("p").text(`${item[0]}: ${item[1]}`)
        });
-  });
-  }
+
 // BAR CHART
  // Filter data for selected year and state
-    const AveragesReport = data.filter(item => (item.Year == selectedYear && item.State == selectedState));
+    var AverageEntries = Object.entries(AveragesReport[0]).slice(3,13);
+    AverageEntries = AverageEntries.sort()
+    console.log(AverageEntries)
 
-    var YearAverages = AveragesReport[0].slice(0,10);
-    YearAverages = YearAverages.reverse();
-    var Crime = AveragesReport[0].item[1].slice(0,10);
-    Crime = Crime.reverse();
-    var CrimeType = AveragesReport[0].item[0]
-    CrimeType = CrimeType.reverse();
- 
-    // Check values
-      //console.log(sampleValue);
-      //console.log(otuID);
-     // console.log(otuLabels);
+    //var Crime = AveragesReport[0]("#Murder").slice(3,13);
+    var CrimeAverages = AverageEntries.forEach(element => console.log(element[1]));
+
+    console.log(CrimeAverages)
+    //Crime = Crime.reverse();
+    var CrimeType = AverageEntries.forEach(element => console.log(element[0]));
+    console.log(CrimeType)
+    //CrimeType = CrimeType.reverse();
 
     // Y axis of bar chart
     const yAxis = Crime.map(item => item);
@@ -86,6 +84,8 @@ function OptionMenu(selectedYear, selectedState) {
        Plotly.newPlot('bar', [trace], layout,  {responsive: true}); 
 
  // Initial test starts
+});
+}
  OptionMenu(2018, "ARIZONA")
  
  // Event on change takes the value and calls the function during dropdown selection
