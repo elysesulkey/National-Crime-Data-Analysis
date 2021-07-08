@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template
-from dotenv import load_dotenv
+from 3 import load_dotenv
 from os import environ
 from flask_sqlalchemy import SQLAlchemy
 
@@ -36,6 +36,9 @@ def resources():
 def visualizations():
     return render_template("visualizations.html")
 
+@app.route('/map')
+def map():
+    return render_template("ImTheMap.html")
 
 @app.route('/api/notes/postgres')
 def note_postgres():
