@@ -82,53 +82,51 @@ function OptionMenu(selectedYear, selectedState) {
 
 // GAUGE CHART
 
-// Gauge Chart to plot weekly washing frequency 
-const guageDisplay = d3.select("#gauge");
+ // Gauge Chart to plot weekly washing frequency 
+ /*const guageDisplay = d3.select("#gauge");
  guageDisplay.html(""); 
-const crimeFreq = idMetadata[0].cfreq;
+ const washFreq = idMetadata[0].wfreq;
  
  const guageData = [
     {
       domain: { x: [0, 1], y: [0, 1] },
-      value: crimeFreq,
-      title: { text: "<b>Crime Frequency </b><br> (Crimes per State / Year)" },
+      value: washFreq,
+      title: { text: "<b>Belly Button Washing Frequency </b><br> (Scrubs/Week)" },
       type: "indicator",
       mode: "gauge+number",     
-      gauge: {
-      axis: { range: [0,9] },
-      bar: { color: "#e6e6fa" },
-     //  steps: [
-      //    { range: [0, 1], color: "#d8bfd8" },
-        //  { range: [1, 2], color: "#dda0dd" },
-        //  { range: [2, 3], color: "#da70d6" },
-        //  { range: [3, 4], color: "#ee82ee" },
-        //  { range: [4, 5], color: "#ff00ff" },
-        //  { range: [5, 6], color: "#ba55d3" },
-        //  { range: [6, 7], color: "#9932cc" },
-         // { range: [7, 8], color: "#9400d3" },
-        //  { range: [8, 9], color: "#8a2be2" }
+       gauge: {
+       axis: { range: [0,9] },
+       bar: { color: "#e6e6fa" },
+       steps: [
+          { range: [0, 1], color: "#d8bfd8" },
+          { range: [1, 2], color: "#dda0dd" },
+          { range: [2, 3], color: "#da70d6" },
+          { range: [3, 4], color: "#ee82ee" },
+          { range: [4, 5], color: "#ff00ff" },
+          { range: [5, 6], color: "#ba55d3" },
+          { range: [6, 7], color: "#9932cc" },
+          { range: [7, 8], color: "#9400d3" },
+          { range: [8, 9], color: "#8a2be2" }
                 
-      //  ],
-      // threshold: {
-       //   value: crimeFreq
-      //  }
-      //}
-    //}
- // ]; 
-//  const gaugeLayout = {  width: 600, 
-                  // height: 400, 
-                   //margin: { t: 0, b: 0 }, 
-                 //   };
+        ],
+       threshold: {
+          value: washFreq
+        }
+      }
+    }
+  ]; 
+  const gaugeLayout = {  width: 600, 
+                   height: 400, 
+                   margin: { t: 0, b: 0 }, 
+                    };
  
  // Plot using Plotly
-  //Plotly.newPlot('gauge', guageData, gaugeLayout); 
- 
-// });
- //}
+  Plotly.newPlot('gauge', guageData, gaugeLayout); 
+ */
+ });
+ }
  
  // Initial test starts
-});
-}
  OptionMenu(2018, "ARIZONA")
  
  // Event on change takes the value and calls the function during dropdown selection
