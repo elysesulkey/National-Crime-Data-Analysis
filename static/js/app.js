@@ -83,15 +83,21 @@ function OptionMenu(selectedYear, selectedState) {
 // GAUGE CHART
 
  // Gauge Chart to plot weekly washing frequency 
- /*const guageDisplay = d3.select("#gauge");
+ const guageDisplay = d3.select("#gauge");
  guageDisplay.html(""); 
- const washFreq = idMetadata[0].wfreq;
+ var ReportTotalCrime = CrimeAverages.reduce((a,b) => a + b, 0);
+ console.log(ReportTotalCrime)
+ var PopulationLine = Object.entries(AveragesReport[0]).slice(2,3)
+ var ReportPopulation = PopulationLine.map(element => element[1])
+ console.log(ReportPopulation)
+ const crimefreq = 
+ console.log(crimefreq)
  
  const guageData = [
     {
       domain: { x: [0, 1], y: [0, 1] },
-      value: washFreq,
-      title: { text: "<b>Belly Button Washing Frequency </b><br> (Scrubs/Week)" },
+      value: crimefreq,
+      title: { text: "<b> Crime Experience Frequency (Total Crimes/Population" },
       type: "indicator",
       mode: "gauge+number",     
        gauge: {
@@ -110,7 +116,7 @@ function OptionMenu(selectedYear, selectedState) {
                 
         ],
        threshold: {
-          value: washFreq
+          value: crimefreq
         }
       }
     }
@@ -122,7 +128,6 @@ function OptionMenu(selectedYear, selectedState) {
  
  // Plot using Plotly
   Plotly.newPlot('gauge', guageData, gaugeLayout); 
- */
  });
  }
  
