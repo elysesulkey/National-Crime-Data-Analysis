@@ -5,7 +5,7 @@ function OptionMenu(selectedYear, selectedState) {
     console.log(selectedYear, selectedState);
   
     // Read the json file for the data
-    d3.json("../data/state_year_avg.json").then((data) => {
+    d3.json("../Static/data/state_year_avg.json").then((data) => {
   
     //console.log(data);
   
