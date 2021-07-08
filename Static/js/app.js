@@ -7,10 +7,10 @@ function OptionMenu(selectedYear, selectedState) {
     // Read the json file for the data
     d3.json("../Static/data/state_year_avg.json").then((data) => {
   
-    //console.log(data);
+    console.log(data);
   
     // Clear dropdown
-    d3.select("#selectedYear", "#selectedState").html("");
+    d3.select("#selectedYear" && "#selectedState").html("");
       
     // Select year & append to dropdown
     let YearOption = [...new Set(data.map(item => item.Year))];
@@ -33,7 +33,7 @@ function OptionMenu(selectedYear, selectedState) {
           .attr("value", item => item);     
 
     // Selected value passed
-    d3.select("#selectedYear", "#selectedState").node().value = selectedYear, selectedState;
+    d3.select("#selectedYear" && "#selectedState").node().value = selectedYear && selectedState;
 
     // Filter data for selected year and state
     const AveragesReport = data.filter(item => (item.Year == selectedYear && item.State == selectedState));
@@ -54,6 +54,10 @@ function OptionMenu(selectedYear, selectedState) {
  OptionMenu(2018, "ARIZONA")
  
  // Event on change takes the value and calls the function during dropdown selection
- d3.select("#selectedYear", "#selectedState").on('change',() => {
+ d3.select("#selectedYear").on('change',() => {
+  OptionMenu(d3.event.target.value);
+ });
+
+ d3.select("#selectedState").on('change',() => {
   OptionMenu(d3.event.target.value);
  });
