@@ -43,6 +43,47 @@ function OptionMenu(selectedYear, selectedState) {
        });
   });
   }
+// BAR CHART
+ // Filter data for selected year and state
+    const AveragesReport = data.filter(item => (item.Year == selectedYear && item.State == selectedState));
+
+    var YearAverages = AveragesReport[0].slice(0,10);
+    YearAverages = YearAverages.reverse();
+    var Crime = AveragesReport[0].item[1].slice(0,10);
+    Crime = Crime.reverse();
+    var CrimeType = AveragesReport[0].item[0]
+    CrimeType = CrimeType.reverse();
+ 
+    // Check values
+      //console.log(sampleValue);
+      //console.log(otuID);
+     // console.log(otuLabels);
+
+    // Y axis of bar chart
+    const yAxis = Crime.map(item => item);
+    
+    // Define the layout and trace object, edit color and orientation
+       const trace = {
+       y: yAxis,
+       x: YearAverages,
+       type: 'bar',
+       orientation: "h",
+       text:  CrimeType,
+       marker: {
+          color: "#9370db",
+          line: {
+            width: 3
+          }
+        }
+       },
+       layout = {
+       title: 'Average Crime by Type',
+       xaxis: {title: 'Average # Crimes Committed'},
+       yaxis: {title: 'Crime Type'}
+       };
+ 
+       // Plot using Plotly
+       Plotly.newPlot('bar', [trace], layout,  {responsive: true}); 
 
  // Initial test starts
  OptionMenu(2018, "ARIZONA")
