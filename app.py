@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template
-from 3 import load_dotenv
+from dotenv import load_dotenv
 from os import environ
 from flask_sqlalchemy import SQLAlchemy
 
