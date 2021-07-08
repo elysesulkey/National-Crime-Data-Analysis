@@ -21,7 +21,21 @@ class Note(db.Model):
 
 @app.route('/')
 def index():
+    return render_template("aboutus.html")
+
+
+@app.route('/')
+def index():
     return render_template("index.html")
+
+ @app.route('/')
+def index():
+    return render_template("resources.html")   
+
+@app.route('/')
+def index():
+    return render_template("visualizations.html")
+
 
 @app.route('/api/notes/postgres')
 def note_postgres():
