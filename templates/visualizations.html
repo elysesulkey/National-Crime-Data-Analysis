@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- D3 Stylesheet -->
-  <link rel="stylesheet" href="../css/d3Style.css" media="screen">
+  <link rel="stylesheet" href="../Static/css/d3Style.css" media="screen">
 </head>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,10 +55,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <body>
 
   <div class="navbar">
-    <a class="navbar-brand" style="background-color: gray;" href="../../index.html">Home</a>
-    <a class="nav-link" href="../../visualizations.html">Visualizations</a>
-    <a class="nav-link" href="../../aboutus.html">About Us</a>
-    <a class="nav-link" href="../../resources.html">Resources</a>
+    <a class="navbar-brand" style="background-color: gray;" href="../index.html">Home</a>
+    <a class="nav-link" href="visualizations.html">Visualizations</a>
+    <a class="nav-link" href="aboutus.html">About Us</a>
+    <a class="nav-link" href="resources.html">Resources</a>
   </div>
   
   </body>
@@ -76,14 +76,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="row">
       <div class="col-md-2">
         <div class="well">
-          <h5>Year:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          <h5>Year</h5>
+          <select id="selectedYear" onchange="OptionMenu(this.value)"></select>
+          <h5>State</h5>
+          <select id="selectedState" onchange="OptionMenu(this.value)"></select>
         </div>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Report Info</h3>
+            <h3 class="panel-title">Reported Crime Averages</h3>
           </div>
-          <div id="sample-metadata" class="panel-body"></div>
+          <div id="ReportInfo" class="panel-body"></div>
         </div>
       </div>
       <div class="col-md-5">
@@ -102,8 +104,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../data/cleaned_crime_data.json"></script>
+  <script src="../Static/js/app.js"></script>
+  <script src="../Static/data/state_year_avg.json"></script>
   
 </body>
 
