@@ -1,137 +1,159 @@
-// Set up chart
-var svgWidth = 900;
-var svgHeight = 600;
-
-var margin = {
-  top: 20,
-  right: 40,
-  bottom: 100,
-  left: 100
-};
-
-var width = svgWidth - margin.left - margin.right;
-var height = svgHeight - margin.top - margin.bottom;
-
-// Create an SVG wrapper, append SVG group to hold chart & shift left and top margins.
-var svg = d3.select("#scatter")
+ // Scatter Chart
+ // Set up chart
+ var svgWidth = 900;
+ var svgHeight = 600;
+ 
+ var margin = {
+   top: 20,
+   right: 40,
+   bottom: 100,
+   left: 100
+ };
+ 
+ var width = svgWidth - margin.left - margin.right;
+ var height = svgHeight - margin.top - margin.bottom;
+ 
+  // Create an SVG wrapper, append SVG group to hold chart & shift left and top margins.
+  var svg = d3.select("#scatter")
   .append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight);
 
-var chartGroup = svg.append("g") 
+  var chartGroup = svg.append("g") 
   .attr("height", height)
   .attr("width", width)
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
-    
-// Initial paramaters
-var x_property = "poverty";
-var y_property = "obesity";
 
-  // Update x-scale & create scales
-function xScale(data, x_property) {
-  var xLinearScale = d3.scaleLinear()
-    .domain([d3.min(data, d => d[x_property]) * 0.8,
-    d3.max(data, d => d[x_property]) * 1.2
-    ])
-    .range([0, width]);
-  return xLinearScale;
-}
-
-// Create function to update x-scale when clicking axis label & create scales
-function yScale(data, y_property) {
-  var yLinearScale = d3.scaleLinear()
-    .domain([d3.min(data, d => d[y_property]) * 0.8,
-    d3.max(data, d => d[y_property]) * 1.1
-    ])
-    .range([height, 0]);
-  return yLinearScale;
-}
-
-// Create function to update xAxis when clicking axis label
-function renderXAxis(newXScale, xAxis) {
-  var bottomAxis = d3.axisBottom(newXScale);
-  xAxis.transition()
-    .duration(1000)
-    .call(bottomAxis);
-  return xAxis;
-}
-  // Create function to update xAxis when clicking Y axis label
-function renderyAxis(newYScale, yAxis) {
-  var leftAxis = d3.axisLeft(newYScale); 
-  yAxis.transition()
-    .duration(500)
-    .call(leftAxis);
-  return yAxis;
-}
-// Create function to update circles
-function renderCircles(circlesGroup, newXScale, x_property, newYScale, y_property) {
-  circlesGroup.transition()
-    .duration(1000)
-    .attr("cx", d => newXScale(d[x_property]))
-    .attr("cy", d => newYScale(d[y_property]));
-  return circlesGroup;
-}
-
-function renderText(circleText, newXScale, x_property, newYScale, y_property) {
-  circleText.transition()
-    .duration(1000)
-    .attr("x", d => newXScale(d[x_property]))
-    .attr("y", d => newYScale(d[y_property]));
-  return circleText;
-}
-
-function updateToolTip(x_property,y_property, circlesGroup) {
-  console.log("update tool tip", x_property);
-  var label;
+ // Initial paramaters
+ var x_property = "Violent Crime";
+ var y_property = "2018";
  
-  // Set x & y axis label on tooltip 
-  if (x_property === "poverty") {
-    label = "Poverty:";
-  }
-  else if (x_property === "age") {
-    label = "Age:";
-  }
-  else {
-    label = "Household Income:";
-  }
+ // Update x-scale & create scales
+ function xScale(data, x_property) {
+   var xLinearScale = d3.scaleLinear()
+     .domain([d3.min(data, d => d[x_property]) * 0.8,
+     d3.max(data, d => d[x_property]) * 1.2
+     ])
+     .range([0, width]);
+   return xLinearScale;
+ }
  
-  if (y_property === "obesity") {
-    ylabel = "Obesity:";
-  }
-  else if (y_property === "smokes") {
-    ylabel = "Smokes:";
-  }
-  else {
-    ylabel = "Healthcare:";
-  }
-  var toolTip = d3.tip()
-    .attr("class", "d3-tip")
-    .offset([80, -60])
-    .html(function (d) {
-          if (x_property === "poverty") {
-            return (`${d.state}<br>${label} ${d[x_property]}%<br>${ylabel} ${d[y_property]}%`); 
-          }
-          else
-          return (`${d.state}<br>${label} ${d[x_property]}<br>${ylabel} ${d[y_property]}%`);
-    });
-   
+ // Create function to update x-scale when clicking axis label & create scales
+ function yScale(data, y_property) {
+   var yLinearScale = d3.scaleLinear()
+     .domain([d3.min(data, d => d[y_property]) * 0.8,
+     d3.max(data, d => d[y_property]) * 1.1
+     ])
+     .range([height, 0]);
+   return yLinearScale;
+ }
+ 
+ // Create function to update xAxis when clicking axis label
+ function renderXAxis(newXScale, xAxis) {
+   var bottomAxis = d3.axisBottom(newXScale);
+   xAxis.transition()
+     .duration(1000)
+     .call(bottomAxis);
+   return xAxis;
+ }
+ 
+   // Create function to update xAxis when clicking Y axis label
+ function renderyAxis(newYScale, yAxis) {
+   var leftAxis = d3.axisLeft(newYScale); 
+   yAxis.transition()
+     .duration(500)
+     .call(leftAxis);
+   return yAxis;
+ }
+ 
+ // Create function to update circles
+ function renderCircles(circlesGroup, newXScale, x_property, newYScale, y_property) {
+   circlesGroup.transition()
+     .duration(1000)
+     .attr("cx", d => newXScale(d[x_property]))
+     .attr("cy", d => newYScale(d[y_property]));
+   return circlesGroup;
+ }
+ 
+ function renderText(circleText, newXScale, x_property, newYScale, y_property) {
+   circleText.transition()
+     .duration(1000)
+     .attr("x", d => newXScale(d[x_property]))
+     .attr("y", d => newYScale(d[y_property]));
+   return circleText;
+ }
+ 
+ function updateToolTip(x_property,y_property, circlesGroup) {
+   console.log("update tool tip", x_property);
+   var label;
+  
+ // Set x & y axis label on tooltip 
+ if (x_property === "Violent Crime") {
+   label = "Violent Crime:";
+ }
+ else if (x_property === "Murder") {
+   label = "Murder:";
+ }
+ else if (x_property === "Rape") {
+   label = "Rape:";
+ }
+ else if (x_property === "Robbery") {
+   label = "Robbery:";
+ }
+ else if (x_property === "Aggravated Assault") {
+   label = "Aggravated Assault:";
+ }
+ else if (x_property === "Property Crime") {
+   label = "Property Crime:";
+ }
+ else if (x_property === "Burglary") {
+   label = "Burglary:";
+ }
+ else if (x_property === "Larceny Theft") {
+   label = "Larceny Theft:";
+ }
+ else if (x_property === "Motor Vehicle Theft") {
+   label = "Motor Vehicle Theft:";
+ }
+ else {
+   label = "Arson:";
+ }
+ 
+ if (y_property === "2018") {
+   ylabel = "2018:";
+ }
+ else 
+   ylabel = "2019:";
+ 
+ }
+   var toolTip = d3.tip()
+     .attr("class", "d3-tip")
+     .offset([80, -60])
+     .html(function (d) {
+           if (x_property === "Violent Crime") {
+             return (`${d.State}<br>${label} ${d[x_property]}%<br>${ylabel} ${d[y_property]}%`); 
+           }
+           else
+           return (`${d.State}<br>${label} ${d[x_property]}<br>${ylabel} ${d[y_property]}%`);
+     });
+     
   //function chosen x and y tooltip
-  circlesGroup.call(toolTip);
-  circlesGroup.on("mouseover", function (data) {
+   circlesGroup.call(toolTip);
+   circlesGroup.on("mouseover", function (data) {
     toolTip.show(data,this);
-  })
-    // on mouseout event
-    .on("mouseout", function (data, index) {
-      toolTip.hide(data,this);
-    });
+   })
+      // on mouseout event
+      .on("mouseout", function (data, index) {
+        toolTip.hide(data,this);
+      });
 
-  return circlesGroup;
-}
+    return circlesGroup;
+  } 
 
   // Import Data
-  d3.csv("assets/data/data.csv").then(function (data) {
+  d3.csv("/static/data/state_year_avg.csv").then(function (data) {
   data.forEach(d => {
-    d.poverty = +d.poverty;
+    d.Violent = +d.poverty;
     d.healthcare = +d.healthcare;
     d.age = +d.age;
     d.income = +d.income;

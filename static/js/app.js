@@ -92,7 +92,7 @@ function OptionMenu(selectedYear, selectedState) {
  var PopulationLine = Object.entries(AveragesReport[0]).slice(2,3)
  var ReportPopulation = (PopulationLine.map(element => element[1])).reduce((a,b) => a + b, 0);
  console.log(ReportPopulation)
- 
+
  const crimefreq = (ReportTotalCrime / ReportPopulation) * 100
  console.log(crimefreq)
  
@@ -124,7 +124,7 @@ function OptionMenu(selectedYear, selectedState) {
                     };
  
  // Plot using Plotly
-  Plotly.newPlot('gauge', guageData, gaugeLayout); 
+  Plotly.newPlot('gauge', guageData, gaugeLayout);   
  });
  }
  
