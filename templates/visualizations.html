@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- D3 Stylesheet -->
-  <link rel="stylesheet" href="/static/css/d3Style.css" media="screen">
+  
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/d3Style.css">
 </head>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,6 +99,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </div>
     <div class="row">
       <div class="col-md-12">
+        <select id="yeardropdown" onchange="yearChanged(this.value)">
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+        </select>
         <div id="scatter"></div>
       </div>
     </div>
@@ -104,8 +110,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  
   <script src="/static/js/app.js"></script>
   <script src="/static/js/app2.js"></script>
+
   
 </body>
 

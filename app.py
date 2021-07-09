@@ -36,6 +36,11 @@ def resources():
 def visualizations():
     return render_template("visualizations.html")
 
+
+@app.route('/d3viz')
+def d3viz():
+    return render_template("d3viz.html")
+
 @app.route('/map')
 def map():
     return render_template("ImTheMap.html")
