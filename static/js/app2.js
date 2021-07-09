@@ -8,7 +8,7 @@
    right: 40,
    bottom: 100,
    left: 100
- };
+  };
  
  var width = svgWidth - margin.left - margin.right;
  var height = svgHeight - margin.top - margin.bottom;
@@ -36,7 +36,7 @@
      ])
      .range([0, width]);
    return xLinearScale;
- }
+  }
  
  // Create function to update x-scale when clicking axis label & create scales
  function yScale(data, y_property) {
@@ -46,7 +46,7 @@
      ])
      .range([height, 0]);
    return yLinearScale;
- }
+  }
  
  // Create function to update xAxis when clicking axis label
  function renderXAxis(newXScale, xAxis) {
@@ -55,7 +55,7 @@
      .duration(1000)
      .call(bottomAxis);
    return xAxis;
- }
+  }
  
    // Create function to update xAxis when clicking Y axis label
  function renderyAxis(newYScale, yAxis) {
@@ -64,7 +64,7 @@
      .duration(500)
      .call(leftAxis);
    return yAxis;
- }
+  }
  
  // Create function to update circles
  function renderCircles(circlesGroup, newXScale, x_property, newYScale, y_property) {
@@ -73,7 +73,7 @@
      .attr("cx", d => newXScale(d[x_property]))
      .attr("cy", d => newYScale(d[y_property]));
    return circlesGroup;
- }
+  }
  
  function renderText(circleText, newXScale, x_property, newYScale, y_property) {
    circleText.transition()
@@ -81,51 +81,50 @@
      .attr("x", d => newXScale(d[x_property]))
      .attr("y", d => newYScale(d[y_property]));
    return circleText;
- }
+  } 
  
  function updateToolTip(x_property,y_property, circlesGroup) {
    console.log("update tool tip", x_property);
    var label;
   
- // Set x & y axis label on tooltip 
- if (x_property === "Violent Crime") {
-   label = "Violent Crime:";
- }
- else if (x_property === "Murder") {
-   label = "Murder:";
- }
- else if (x_property === "Rape") {
-   label = "Rape:";
- }
- else if (x_property === "Robbery") {
-   label = "Robbery:";
- }
- else if (x_property === "Aggravated Assault") {
-   label = "Aggravated Assault:";
- }
- else if (x_property === "Property Crime") {
-   label = "Property Crime:";
- }
- else if (x_property === "Burglary") {
-   label = "Burglary:";
- }
- else if (x_property === "Larceny Theft") {
-   label = "Larceny Theft:";
- }
- else if (x_property === "Motor Vehicle Theft") {
-   label = "Motor Vehicle Theft:";
- }
- else {
-   label = "Arson:";
- }
+   // Set x & y axis label on tooltip 
+   if (x_property === "Violent Crime") {
+     label = "Violent Crime:";
+    }
+   else if (x_property === "Murder") {
+     label = "Murder:";
+    }
+   else if (x_property === "Rape") {
+     label = "Rape:";
+    }
+   else if (x_property === "Robbery") {
+     label = "Robbery:";
+    }
+   else if (x_property === "Aggravated Assault") {
+     label = "Aggravated Assault:";
+    }
+   else if (x_property === "Property Crime") {
+     label = "Property Crime:";
+    }
+   else if (x_property === "Burglary") {
+     label = "Burglary:";
+    }
+   else if (x_property === "Larceny Theft") {
+     label = "Larceny Theft:";
+    }
+   else if (x_property === "Motor Vehicle Theft") {
+     label = "Motor Vehicle Theft:";
+    }
+   else {
+     label = "Arson:";
+    }
  
- if (y_property === "2018") {
-   ylabel = "2018:";
- }
- else 
-   ylabel = "2019:";
- 
- }
+   if (y_property === "2018") {
+     ylabel = "2018:";
+    }
+   else 
+     ylabel = "2019:";
+   }
    var toolTip = d3.tip()
      .attr("class", "d3-tip")
      .offset([80, -60])
@@ -135,19 +134,20 @@
            }
            else
            return (`${d.State}<br>${label} ${d[x_property]}<br>${ylabel} ${d[y_property]}%`);
-     });
+    });
      
   //function chosen x and y tooltip
-   circlesGroup.call(toolTip);
-   circlesGroup.on("mouseover", function (data) {
-    toolTip.show(data,this);
-   })
+    circlesGroup.call(toolTip);
+    circlesGroup.on("mouseover", function (data) {
+      toolTip.show(data,this);
+    })
       // on mouseout event
       .on("mouseout", function (data, index) {
         toolTip.hide(data,this);
       });
 
-
+    //return circlesGroup;
+    //}
 
   // Import Data
   d3.csv("/static/data/state_year_avg.csv").then(function (data) {
@@ -162,8 +162,8 @@
     d.LarcenyTheft = +d.LarcenyTheft;
     d.MotorVehicleTheft = +d.MotorVehicleTheft;
     d.Arson = +d.Arson;
-    d.2018 = + d.2018;
-    d.2019 = +d.2018
+    d.Year(2018) = + d.Year(2018);
+    d.Year(2019) = +d.Year(2018)
 });
 
   // LinearScale functions 
@@ -200,86 +200,86 @@
   var ViolentCrimeLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 15)
-    .attr("value", "poverty")
+    .attr("value", "Violent Crime")
     .classed("active", true)
     .text("Violent Crime");
 
   var MurderLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 30)
-    .attr("value", "income")
+    .attr("value", "Murder")
     .classed("inactive", true)
     .text("Murder");
 
   var RapeLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
-    .attr("value", "age") 
+    .attr("value", "Rape") 
     .classed("inactive", true)
     .text("Rape");  
 
   var RobberyLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 15)
-    .attr("value", "poverty")
+    .attr("value", "Robbery")
     .classed("active", true)
     .text("Robbery");
 
   var AggravatedAssaultLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 30)
-    .attr("value", "income")
+    .attr("value", "Aggravated Assault")
     .classed("inactive", true)
     .text("Aggravated Assault");
 
   var PropertyCrimeLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
-    .attr("value", "age") 
+    .attr("value", "Property Crime") 
     .classed("inactive", true)
     .text("Property Crime"); 
   
   var BurglaryLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 15)
-    .attr("value", "poverty")
+    .attr("value", "Burglary")
     .classed("active", true)
     .text("Burglary");
 
   var LarcenyTheftLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 30)
-    .attr("value", "income")
+    .attr("value", "Larceny")
     .classed("inactive", true)
     .text("Larceny Theft");
 
   var MotorVehicleTheftLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
-    .attr("value", "age") 
+    .attr("value", "Motor Vehicle Theft") 
     .classed("inactive", true)
     .text("Motor Vehicle Theft");   
   
     var ArsonLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 45)
-    .attr("value", "age") 
+    .attr("value", "Arson") 
     .classed("inactive", true)
     .text("Arson");    
 
-  var 2018Label = labelsGroup.append("text")
+  var Year2018Label = labelsGroup.append("text")
     .attr("transform","rotate(-90)")
     .attr("x", (margin.left) * 2.5)
     .attr("y", 0 - (height -60))
-    .attr("value", "obesity") 
+    .attr("value", "2018") 
     .classed("active", true)
     .text("2018");
 
-  var 2019Label = labelsGroup.append("text")
+  var Year2019Label = labelsGroup.append("text")
     .attr("transform","rotate(-90)")
     .attr("x", (margin.left) * 2.5)
     .attr("y", 0 - (height -40))
-    .attr("value", "smokes") 
+    .attr("value", "2019") 
     .classed("inactive", true)
     .text("2019");
 
@@ -379,289 +379,288 @@
             .classed("active", false)
             .classed("inactive", true); 
         }
-      }
-      else if(x_property == "Larceny Theft"){
-        LarcenyTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        ArsonLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        MotorVehicleTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        BurglaryLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        PropertyCrimeLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        AggravatedAssaultLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        RobberyLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        RapeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-        MurderLabel
-          .classed("active", false)
-          .classed("inactive", true);     
-        ViolentCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-      }
-      else if(x_property == "Burglary"){
-        BurglaryLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        ArsonLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        MotorVehicleTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        LarcenyTheftLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        PropertyCrimeLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        AggravatedAssaultLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        RobberyLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        RapeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-        MurderLabel
-          .classed("active", false)
-          .classed("inactive", true);     
-        ViolentCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-      }
-      else if(x_property == "Property Crime"){
-        PropertyCrimeLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        ArsonLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        MotorVehicleTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        LarcenyTheftLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        BurglaryLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        AggravatedAssaultLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        RobberyLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        RapeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-        MurderLabel
-          .classed("active", false)
-          .classed("inactive", true);     
-        ViolentCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-      }
-      else if(x_property == "Aggravated Assault"){
-        PropertyCrimeLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        ArsonLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        MotorVehicleTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        LarcenyTheftLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        BurglaryLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        PropertyCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        RobberyLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        RapeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-        MurderLabel
-          .classed("active", false)
-          .classed("inactive", true);     
-        ViolentCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-      }
-      else if(x_property == "Robbery"){
-        RobberyLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        ArsonLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        MotorVehicleTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        LarcenyTheftLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        BurglaryLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        PropertyCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        AggravatedAssaultLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        RapeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-        MurderLabel
-          .classed("active", false)
-          .classed("inactive", true);     
-        ViolentCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-      }
-      else if(x_property == "Rape"){
-        RapeLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        ArsonLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        MotorVehicleTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        LarcenyTheftLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        BurglaryLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        PropertyCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        RobberyLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        AggravatedAssaultLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-        MurderLabel
-          .classed("active", false)
-          .classed("inactive", true);     
-        ViolentCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-      }
-      else if(x_property == "Murder"){
-        MurderLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        ArsonLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        MotorVehicleTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        LarcenyTheftLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        BurglaryLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        PropertyCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        RobberyLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        AggravatedAssaultLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-        RapeLabel
-          .classed("active", false)
-          .classed("inactive", true);     
-        ViolentCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-      }
-      else 
-        ViolentCrimeLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        ArsonLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        MotorVehicleTheftLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        LarcenyTheftLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        BurglaryLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        PropertyCrimeLabel
-          .classed("active", false)
-          .classed("inactive", true);
-        RobberyLabel
-          .classed("active", true)
-          .classed("inactive", false);
-        AggravatedAssaultLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-        MurderLabel
-          .classed("active", false)
-          .classed("inactive", true);     
-        RapeLabel
-          .classed("active", false)
-          .classed("inactive", true); 
-      }
-     } 
-     else
+        else if(x_property == "Larceny Theft"){
+          LarcenyTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          ArsonLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          MotorVehicleTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          BurglaryLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          PropertyCrimeLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          AggravatedAssaultLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          RobberyLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          RapeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+          MurderLabel
+            .classed("active", false)
+            .classed("inactive", true);     
+          ViolentCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+        }
+        else if(x_property == "Burglary"){
+          BurglaryLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          ArsonLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          MotorVehicleTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          LarcenyTheftLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          PropertyCrimeLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          AggravatedAssaultLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          RobberyLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          RapeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+          MurderLabel
+            .classed("active", false)
+            .classed("inactive", true);     
+          ViolentCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+        }
+        else if(x_property == "Property Crime"){
+          PropertyCrimeLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          ArsonLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          MotorVehicleTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          LarcenyTheftLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          BurglaryLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          AggravatedAssaultLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          RobberyLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          RapeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+          MurderLabel
+            .classed("active", false)
+            .classed("inactive", true);     
+          ViolentCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+        }
+        else if(x_property == "Aggravated Assault"){
+          PropertyCrimeLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          ArsonLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          MotorVehicleTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          LarcenyTheftLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          BurglaryLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          PropertyCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          RobberyLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          RapeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+          MurderLabel
+            .classed("active", false)
+            .classed("inactive", true);     
+          ViolentCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+        }
+        else if(x_property == "Robbery"){
+          RobberyLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          ArsonLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          MotorVehicleTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          LarcenyTheftLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          BurglaryLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          PropertyCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          AggravatedAssaultLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          RapeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+          MurderLabel
+            .classed("active", false)
+            .classed("inactive", true);     
+          ViolentCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+        }
+        else if(x_property == "Rape"){
+          RapeLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          ArsonLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          MotorVehicleTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          LarcenyTheftLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          BurglaryLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          PropertyCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          RobberyLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          AggravatedAssaultLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+          MurderLabel
+            .classed("active", false)
+            .classed("inactive", true);     
+          ViolentCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+        }
+        else if(x_property == "Murder"){
+          MurderLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          ArsonLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          MotorVehicleTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          LarcenyTheftLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          BurglaryLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          PropertyCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          RobberyLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          AggravatedAssaultLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+          RapeLabel
+            .classed("active", false)
+            .classed("inactive", true);     
+          ViolentCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+        }
+        else 
+          ViolentCrimeLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          ArsonLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          MotorVehicleTheftLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          LarcenyTheftLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          BurglaryLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          PropertyCrimeLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          RobberyLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          AggravatedAssaultLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+          MurderLabel
+            .classed("active", false)
+            .classed("inactive", true);     
+          RapeLabel
+            .classed("active", false)
+            .classed("inactive", true); 
+        }
+      } 
+      else
         // replaces y_property with value
         y_property = value;
         yLinearScale = yScale(data, y_property);  
         // changes classes to change bold text
         if (y_property === "2018") {
-          2018Label
+          Year2018Label
             .classed("active", true)
             .classed("inactive", false);
-          2019Label
+          Year2019Label
             .classed("active", false)
             .classed("inactive", true);
         }
         else {
-          2019Label
+          Year2019Label
             .classed("active", true)
             .classed("inactive", false);
-          2018Label
+          Year2018Label
             .classed("active", false)
             .classed("inactive", true); 
-       }
+        }
     
        // updates circles with new x values
        circlesGroup = renderCircles(circlesGroup, xLinearScale, x_property, yLinearScale, y_property);
-      // update circle text
+       // update circle text
        circleText = renderText(circleText, xLinearScale, x_property, yLinearScale, y_property); 
        // updates tooltips with new info
        circlesGroup = updateToolTip(x_property, y_property, circlesGroup);
