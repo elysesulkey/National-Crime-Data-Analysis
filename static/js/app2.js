@@ -665,8 +665,8 @@
        // updates tooltips with new info
        circlesGroup = updateToolTip(x_property, y_property, circlesGroup);
 
-    } 
-  }); 
-}).catch(function (error) {
-  console.log(error);
+    }) 
+ // }); 
+//}).catch(function (error) {
+ // console.log(error);
 });
