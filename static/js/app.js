@@ -65,7 +65,7 @@ function OptionMenu(selectedYear, selectedState) {
        orientation: "h",
        text:  CrimeType,
        marker: {
-          color: "#9370db",
+          color: "cornflowerblue",
           line: {
             width: 1
           }
@@ -105,12 +105,13 @@ function OptionMenu(selectedYear, selectedState) {
       mode: "gauge+number",     
        gauge: {
        axis: { range: [0,100] },
-       bar: { color: "#e6e6fa" },
+       bar: { color: "white" },
        steps: [
-          { range: [0, 25], color: "#d8bfd8" },
-          { range: [25, 50], color: "#dda0dd" },
-          { range: [50, 75], color: "#da70d6" },
-          { range: [75, 100], color: "#ee82ee" }     
+          { range: [0, 20], color: "green" },
+          { range: [20,40], color: "lightgreen"},
+          { range: [40, 60], color: "yellow" },
+          { range: [60, 80], color: "orange" },
+          { range: [80, 100], color: "red" }     
         ],
        threshold: {
           value: crimefreq
