@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>Crime Analysis Dashboard</title>
+  
+    <!-- D3 Stylesheet -->
+    <link rel="stylesheet" href="/static/css/d3Style.css" media="screen">
+      <!-- Personal CSS stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  * {box-sizing: border-box}
+  body {font-family: Arial, Helvetica, sans-serif;}
+  
+  .navbar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+  }
+  
+  .navbar a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 25%; /* Four links of equal widths */
+    text-align: center;
+  }
+  
+  .navbar a:hover {
+    background-color: #000;
+  }
+  
+  .navbar a.active {
+    background-color: #04AA6D;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+  </style>
+  <body>
+  
+  
+  <div class="navbar">
+    <a class="navbar-brand" style="background-color: gray;" href="/">Home</a>
+    <a class="nav-link" href="/visualizations">Visualizations</a>
+    <a class="nav-link" href="/aboutus">About Us</a>
+    <a class="nav-link" href="/resources">Resources</a>
+
+  </div>
+  
+  <!-- Naviation Bar at top of page -->
+  <!-- Start of landing page content -->
+   <!-- Start of container -->
+   <div class="container">
+    <section class="row">
+      <div class="col-lg-8 col-md-8 col-sm-6 col-xm-12">
+        <article class="description-content">
+          
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAffgy6yjg3iXg6udcQwGkz7fqCudryAA2zQ&usqp=CAU" style="width:250px;Height:150px;"></p>
+        <h1 class="description-header">About the USS Struggle Crew</h1>
+            
+          
+          
+          <hr class="description-hr" />
+          <h2> Russ Collins</h2>
+          <img src="https://scontent-lax3-1.xx.fbcdn.net/v/t1.18169-9/20882386_10210701383279348_2930330581219102587_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=osxhbwex-LcAX8oM8nw&_nc_ht=scontent-lax3-1.xx&oh=d8bf77843610b1c818f143ec834f93d8&oe=60EEA36F" alt="alternatetext" style="width:200px;Height:200px;" >
+          <p>
+            
+            Russ Collins received his Bachelor’s degree in Political Science from Clemson University. Russ is currently focused on training, deployment, and management of customer relationship management systems for the Collins & Fine Group.
+            He is dedicated to cutting-edge technical solutions with extensive knowledge of data management and streamlining business processes.
+            He currently resides in Los Cabos, Mexico with his fiancée Paulina and their two dogs, Dexter and Bono.</p>
+          <h2> Jasmin Raven</h2>
+          <img src="https://media-exp3.licdn.com/dms/image/C5603AQELFk8eT0A4Iw/profile-displayphoto-shrink_800_800/0/1612028153904?e=1631145600&v=beta&t=YVtTQOUzaSigOYTo1KED3jc4XD4hBvXiKjfPApLmscE" alt="Jasmin" style="width:200px;Height:200px;" >
+          <p>Jasmin Raven is a former member of the United States Air Force. She is currently finishing her certificate in Data Analytics with UNC-Chapel Hill.She has two rescue dogs, Oliver and Coco.</p>
+          <h2> Elyse Sulkey</h2>
+          <img src="https://scontent-lax3-1.xx.fbcdn.net/v/t1.6435-9/154770123_3843389829042879_1437729186564391067_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=Gjqp8cCE3P4AX8lr15d&_nc_ht=scontent-lax3-1.xx&oh=6daed0d5d21146a48f886236852aeb5c&oe=60EF9A3C" alt="alternatetext" style="width:200px;Height:200px;"  >
+          <p>Elyse Sulkey is a former museum professional excited to be entering the world of tech. 
+            She holds a BA in History from UNC-Chapel Hill and a MSc in Museum Studies from the University of Glasgow. 
+            She is currently finishing her professional certificate in Data Analytics with UNC-Chapel Hill. 
+            Elyse lives with her two adorable cats, Jiji and Kuro, and enjoys reading, baking, and spending time with friends and family.</p>
+          <h2> David Vanie</h2>
+          <img src="https://media-exp3.licdn.com/dms/image/C4D03AQEfZ7NeIRotwA/profile-displayphoto-shrink_800_800/0/1608402037640?e=1631145600&v=beta&t=Cgc8xKVx2hVAAdsfu0Pq5Qbs9zEHtSsaZy0tuDoignY"alt="alternatetext" style="width:200px;Height:200px;"  >
+          <p>David Vanie is a father of 5 children, been married for 16 years and recently retired semi truck owner. 
+             He will be graduating w/ his BA in behavioral social science from North Carolina Central University in the fall as well as completing a Data Analytics certificate. 
+             He is currently working w/ U.S. Census Data in an an Anti-Racist Analyst at DataWorks NC.  David’s professional goals are to collaborate with organizations, institutions and corporations to create ethical data solutions that humanize relationships. </p>
+        </article>
+      </div>
+
+  <!-- Start of footer -->
+  <footer class="footer navbar-fixed-bottom">
+    <div class="two-toned-footer-color"></div>
+    <p class="text-muted text-muted-footer text-center">
+      &copy; Copyright USS Struggle 2021
+    </p>
+  </footer>
+  <!-- End of footer -->
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Popper JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
