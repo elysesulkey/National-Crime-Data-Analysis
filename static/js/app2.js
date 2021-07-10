@@ -215,24 +215,7 @@ function visualize(incomingData, yearSelected) {
     .attr("class", "aText active y")
     .text("Population");
 
-  // 2. Smokes
-  // yText
-  //   .append("text")
-  //   .attr("x", 0)
-  //   .attr("data-name", "smokes")
-  //   .attr("data-axis", "y")
-  //   .attr("class", "aText inactive y")
-  //   .text("Smokes (%)");
-
-  // // 3. Lacks Healthcare
-  // yText
-  //   .append("text")
-  //   .attr("y", 26)
-  //   .attr("data-name", "healthcare")
-  //   .attr("data-axis", "y")
-  //   .attr("class", "aText inactive y")
-  //   .text("Lacks Healthcare (%)");
-
+  
   // 2. Import our .csv file.
   // ========================
   // This data file includes state-by-state demographic data from the US Census
@@ -269,7 +252,7 @@ function visualize(incomingData, yearSelected) {
       // Snatch the y value's key and value.
       var theY = "<div>" + curY + ": " + d[curY] + "%</div>";
       // If the x key is poverty
-      if (curX === "poverty") {
+      if (curX === "Violent Crime") {
         // Grab the x key and a version of the value formatted to show percentage
         theX = "<div>" + curX + ": " + d[curX] + "%</div>";
       }
