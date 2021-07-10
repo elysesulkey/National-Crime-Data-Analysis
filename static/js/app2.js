@@ -371,7 +371,7 @@ function visualize(incomingData, yearSelected) {
     .attr("transform", "translate(" + (margin + labelArea) + ", 0)");
 
   // Now let's make a grouping for our dots and their labels.
-  var theCircles = svg.selectAll("g theCircles").data(theData).enter();
+  var theCircles = svg.selectAll("#scatter circle").data(theData).enter();
 
   // We append the circles for each row of data (or each state, in this case).
   theCircles
@@ -443,6 +443,7 @@ function visualize(incomingData, yearSelected) {
 
   // Select all axis text and add this d3 click event.
   d3.selectAll(".aText").on("click", function () {
+
     // Make sure we save a selection of the clicked text,
     // so we can reference it without typing out the invoker each time.
     var self = d3.select(this);
@@ -470,17 +471,15 @@ function visualize(incomingData, yearSelected) {
         svg.select(".xAxis").transition().duration(300).call(xAxis);
 
         // With the axis changed, let's update the location of the state circles.
-        d3.selectAll("circle").each(function () {
-          // Each state circle gets a transition for it's new attribute.
-          // This will lend the circle a motion tween
-          // from it's original spot to the new location.
-          d3
-            .select(this)
+        d3.selectAll('#scatter circle').each(function(a) {
+          d3.select(this)
             .transition()
+            .duration(300)
             .attr("cx", function (d) {
+         
               return xScale(d[curX]);
             })
-            .duration(300);
+
         });
 
         // We need change the location of the state texts, too.
@@ -513,7 +512,7 @@ function visualize(incomingData, yearSelected) {
         svg.select(".yAxis").transition().duration(300).call(yAxis);
 
         // With the axis changed, let's update the location of the state circles.
-        d3.selectAll("circle").each(function () {
+        d3.selectAll("#scatter circle").each(function () {
           // Each state circle gets a transition for it's new attribute.
           // This will lend the circle a motion tween
           // from it's original spot to the new location.
