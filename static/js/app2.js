@@ -66,10 +66,10 @@ function visualize(incomingData, yearSelected) {
   var circRadius;
   function crGet() {
     if (width <= 530) {
-      circRadius = 10;
+      circRadius = 6;
     }
     else {
-      circRadius = 10;
+      circRadius = 6;
     }
   }
   crGet();
