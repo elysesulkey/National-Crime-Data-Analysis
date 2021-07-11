@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Crime Analysis Dashboard</title>
-  
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- D3 Stylesheet -->
-  
+
   <link rel="stylesheet" href="static/css/style.css">
   <link rel="stylesheet" href="static/css/d3Style.css">
 </head>
@@ -18,42 +18,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-* {box-sizing: border-box}
-body {font-family: Arial, Helvetica, sans-serif;}
-
-.navbar {
-  width: 100%;
-  background-color:  rgb(74, 56, 233);
-  overflow: auto;
-}
-
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-  width: 25%; /* Four links of equal widths */
-  text-align: center;
-}
-
-.navbar a:hover {
-  background-color: #000;
-}
-
-.navbar a.active {
-  background-color: #04AA6D;
-}
-
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-    width: 100%;
-    text-align: left;
+  * {
+    box-sizing: border-box
   }
-}
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .navbar {
+    width: 100%;
+    background-color: rgb(74, 56, 233);
+    overflow: auto;
+  }
+
+  .navbar a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 25%;
+    /* Four links of equal widths */
+    text-align: center;
+  }
+
+  .navbar a:hover {
+    background-color: #000;
+  }
+
+  .navbar a.active {
+    background-color: #04AA6D;
+  }
+
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
 </style>
+
 <body>
 
   <div class="navbar">
@@ -64,10 +71,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
   </div>
- 
-<!-- Naviation Bar at top of page -->
 
-<!-- End of Navagation Bar-->  
+  <!-- Naviation Bar at top of page -->
+
+  <!-- End of Navagation Bar-->
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
@@ -75,11 +82,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3">
+    <div class="row" id="vizdiv">
+      <div class="col-md-2">
         <div class="well">
           <h5>Year</h5>
-          <select id="selectedYear"></select>
+          <select id="selectedYear" onchange="yearChanged(this.value)"></select>
           <h5>State</h5>
           <select id="selectedState"></select>
         </div>
@@ -90,33 +97,36 @@ body {font-family: Arial, Helvetica, sans-serif;}
           <div id="ReportInfo" class="panel-body"></div>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-5">
         <div id="bar"></div>
-      <div class="col-md-8">
-        <div id="gauge" ></div>
+
+        <div id="gauge"></div>
+      
+      
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-        <select id="yeardropdown" onchange="yearChanged(this.value)">
-          <option value="2018">2018</option>
-          <option value="2019">2019</option>
-        </select>
+      <div class="col-md-5">
+    
+      <h3 style="text-align: center;" id="scattertitle"><b>National Crime Average Standardized by Population</b></h3>
         <div id="scatter"></div>
       </div>
+      
+      <!-- <div class="row">
+      <div class="col-md-8">
+      
+      </div>
+    </div> -->
     </div>
-  </div>
 
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
-  
-  <script src="/static/js/app.js"></script>
-  <script src="/static/js/app2.js"></script>
-  
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/app2.js"></script>
 
 
-  
+
+
 </body>
 
 </html>

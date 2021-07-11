@@ -12,7 +12,7 @@ html {
 body {
   /* Padding bottom by footer height */
   padding-bottom: 80px;div {
-    padding-top: 50px;
+    padding-top: 5px;
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -32,4 +32,17 @@ body {
 #footer p {
   margin: 0;
   font-size: 16px;
+}
+
+#scatter {
+  margin-left:-200px;
+  margin-right:-80px;
+}
+#scattertitle {
+  margin-left:-100px;
+  margin-right:-100px;
+}
+#vizdiv {
+  margin-left:-300px; 
+  margin-right:-300px
 }

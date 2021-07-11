@@ -25,7 +25,7 @@ var labelArea = 200;
 
 // padding for the text at the bottom and left axes
 var tPadBot = 90;
-var tPadLeft = 120;
+var tPadLeft = 150;
 
 // Create the actual canvas for the graph
 var svg = d3
@@ -65,7 +65,7 @@ function visualize(incomingData, yearSelected) {
   // it in the mobility section of our code.
   var circRadius;
   function crGet() {
-    if (width <= 530) {
+    if (width <= 500) {
       circRadius = 6;
     }
     else {
