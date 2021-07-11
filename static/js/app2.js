@@ -66,7 +66,7 @@ function visualize(incomingData, yearSelected) {
   var circRadius;
   function crGet() {
     if (width <= 530) {
-      circRadius = 5;
+      circRadius = 10;
     }
     else {
       circRadius = 10;
@@ -250,11 +250,11 @@ function visualize(incomingData, yearSelected) {
       // Grab the state name.
       var theState = "<div>" + d.State + "</div>";
       // Snatch the y value's key and value.
-      var theY = "<div>" + curY + ": " + d[curY] + "%</div>";
+      var theY = "<div>" + curY + ": " + d[curY] + "</div>";
       // If the x key is poverty
       if (curX === "Violent Crime") {
         // Grab the x key and a version of the value formatted to show percentage
-        theX = "<div>" + curX + ": " + d[curX] + "%</div>";
+        theX = "<div>" + curX + ": " + d[curX] + "</div>";
       }
       else {
         // Otherwise
@@ -262,7 +262,7 @@ function visualize(incomingData, yearSelected) {
         theX = "<div>" +
           curX +
           ": " +
-          parseFloat(d[curX]).toLocaleString("en") +
+          parseFloat(d[curX]).toLocaleString("en")
           "</div>";
       }
       // Display what we capture.
