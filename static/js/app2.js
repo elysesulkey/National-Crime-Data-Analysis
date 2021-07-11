@@ -248,7 +248,7 @@ function visualize(incomingData, yearSelected) {
       // x key
       var theX;
       // Grab the state name.
-      var theState = "<div>" + d.state + "</div>";
+      var theState = "<div>" + d.State + "</div>";
       // Snatch the y value's key and value.
       var theY = "<div>" + curY + ": " + d[curY] + "%</div>";
       // If the x key is poverty

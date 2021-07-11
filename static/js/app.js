@@ -74,7 +74,7 @@ function OptionMenu(selectedYear, selectedState) {
        layout = {
        title: 'Average Reported Crime by Type',
        xaxis: {title: 'Average # Crimes Reported'},
-       
+       yaxis: {title: 'Crime Category', automargin: true}
        };
  
        // Plot using Plotly
@@ -103,10 +103,12 @@ function OptionMenu(selectedYear, selectedState) {
       value: crimefreq,
       title: { text: "<b> Crime Experience Frequency (Total Crimes/Population)" },
       type: "indicator",
-      mode: "gauge+number",     
+      mode: "gauge+number",    
+
        gauge: {
        axis: { range: [0,100] },
-       bar: { color: "white" },
+      
+       
        steps: [
           { range: [0, 20], color: "green" },
           { range: [20,40], color: "lightgreen"},
