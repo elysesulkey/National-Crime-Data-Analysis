@@ -73,8 +73,8 @@ function OptionMenu(selectedYear, selectedState) {
        },
        layout = {
        title: 'Average Reported Crime by Type',
-       xaxis: {title: 'Average # Crimes Committed'},
-       yaxis: {title: 'Crime Type'}
+       xaxis: {title: 'Average # Crimes Reported'},
+       
        };
  
        // Plot using Plotly
@@ -94,13 +94,14 @@ function OptionMenu(selectedYear, selectedState) {
  console.log(ReportPopulation)
 
  const crimefreq = (ReportTotalCrime / ReportPopulation) * 100
+
  console.log(crimefreq)
- 
+  
  const guageData = [
     {
       domain: { x: [0, 1], y: [0, 1] },
       value: crimefreq,
-      title: { text: "<b> Crime Experience Frequency (Total Crimes/Population" },
+      title: { text: "<b> Crime Experience Frequency (Total Crimes/Population)" },
       type: "indicator",
       mode: "gauge+number",     
        gauge: {
@@ -119,7 +120,7 @@ function OptionMenu(selectedYear, selectedState) {
       }
     }
   ]; 
-  const gaugeLayout = {  width: 600, 
+  const gaugeLayout = {  width:650, 
                    height: 400, 
                    margin: { t: 0, b: 0 }, 
                     };
