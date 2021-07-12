@@ -1,18 +1,7 @@
-// D3 Animated Scatter Plot
-
-// Function for change on dropdown menu
-
-
-// Section 1: Pre-Data Setup
-// ===========================
-// Before we code any data visualizations,
-// we need to at least set up the width, height and margins of the graph.
-// Note: I also added room for label text as well as text padding,
-// though not all graphs will need those specifications.
+// Scatter Plot
 
 // Grab the width of the containing box
 var width = parseInt(d3.select("#scatter").style("width"));
-
 
 // Designate the height of the graph
 var height = width - width / 4.7;
@@ -35,6 +24,7 @@ var svg = d3
   .attr("height", height)
   .attr("class", "chart");
 
+  // Create function for selection change
 function yearChanged(yearSelected) {
   console.log(yearSelected)
   // Import our CSV data with d3's .csv import method.
@@ -45,7 +35,6 @@ function yearChanged(yearSelected) {
   });
 }
 
-
 // Import our CSV data with d3's .csv import method.
 d3.csv("static/data/state_year_avg.csv").then(function (data) {
   // Visualize the data
@@ -53,16 +42,11 @@ d3.csv("static/data/state_year_avg.csv").then(function (data) {
   // console.log(data)
 });
 
-// 3. Create our visualization function
-// ====================================
-// We called a "visualize" function on the data obtained with d3's .csv method.
-// This function handles the visual manipulation of all elements dependent on the data.
+// Create our visualization function
 function visualize(incomingData, yearSelected) {
   svg.html("")
 
   // Set the radius for each dot that will appear in the graph.
-  // Note: Making this a function allows us to easily call
-  // it in the mobility section of our code.
   var circRadius;
   function crGet() {
     if (width <= 500) {
@@ -74,13 +58,10 @@ function visualize(incomingData, yearSelected) {
   }
   crGet();
 
-  // The Labels for our Axes
-
-  // A) Bottom Axis
-  // ==============
-
-  // We create a group element to nest our bottom axes labels.
+  // Labels for Axes
+  // Create a group element to nest bottom axes labels
   svg.append("g").attr("class", "xText");
+
   // xText will allows us to select the group without excess code.
   var xText = d3.select(".xText");
 
@@ -183,8 +164,6 @@ function visualize(incomingData, yearSelected) {
 
 
   // B) Left Axis
-  // ============
-
   // Specifying the variables like this allows us to make our transform attributes more readable.
   var leftTextX = margin + tPadLeft;
   var leftTextY = (height + labelArea) / 2 - labelArea;
@@ -216,11 +195,7 @@ function visualize(incomingData, yearSelected) {
     .text("Population");
 
   
-  // 2. Import our .csv file.
-  // ========================
-  // This data file includes state-by-state demographic data from the US Census
-  // and measurements from health risks obtained
-  // by the Behavioral Risk Factor Surveillance System.
+  // 2. Import .csv file.
   // PART 1: Essential Local Variables and Functions
   // =================================
   // curX and curY will determine what data gets represented in each axis.
@@ -257,7 +232,6 @@ function visualize(incomingData, yearSelected) {
         theX = "<div>" + curX + ": " + d[curX] + "</div>";
       }
       else {
-        // Otherwise
         // Grab the x key and a version of the value formatted to include commas after every third digit.
         theX = "<div>" +
           curX +
@@ -270,11 +244,6 @@ function visualize(incomingData, yearSelected) {
     });
   // Call the toolTip function.
   svg.call(toolTip);
-
-  // PART 2: D.R.Y!
-  // ==============
-  // These functions remove some repitition from later code.
-  // This will be more obvious in parts 3 and 4.
 
   // a. change the min and max for x
   function xMinMax() {
@@ -317,7 +286,6 @@ function visualize(incomingData, yearSelected) {
   }
 
   // Part 3: Instantiate the Scatter Plot
-  // ====================================
   // This will add the first placement of our data and axes to the scatter plot.
 
   // First grab the min and max values of x and y.
@@ -338,12 +306,10 @@ function visualize(incomingData, yearSelected) {
     .range([height - margin - labelArea, margin]);
 
   // We pass the scales into the axis methods to create the axes.
-  // Note: D3 4.0 made this a lot less cumbersome then before. Kudos to mbostock.
   var xAxis = d3.axisBottom(xScale);
   var yAxis = d3.axisLeft(yScale);
 
   // Determine x and y tick counts.
-  // Note: Saved as a function for easy mobile updates.
   function tickCount() {
     if (width <= 500) {
       xAxis.ticks(5);
@@ -437,7 +403,6 @@ function visualize(incomingData, yearSelected) {
     });
 
   // Part 4: Make the Graph Dynamic
-  // ==========================
   // This section will allow the user to click on any label
   // and display the data it references.
 
@@ -449,8 +414,6 @@ function visualize(incomingData, yearSelected) {
     var self = d3.select(this);
 
     // We only want to run this on inactive labels.
-    // It's a waste of the processor to execute the function
-    // if the data is already displayed on the graph.
     if (self.classed("inactive")) {
       // Grab the name and axis saved in label.
       var axis = self.attr("data-axis");
@@ -544,9 +507,6 @@ function visualize(incomingData, yearSelected) {
   });
 
   // Part 5: Mobile Responsive
-  // =========================
-  // With d3, we can call a resize function whenever the window dimensions change.
-  // This make's it possible to add true mobile-responsiveness to our charts.
   d3.select(window).on("resize", resize);
 
   // One caveat: we need to specify what specific parts of the chart need size and position changes.
