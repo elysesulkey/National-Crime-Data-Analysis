@@ -16,33 +16,39 @@
 </head>
 
 <style>
-  * {box-sizing: border-box}
-  body {font-family: Arial, Helvetica, sans-serif;}
-  
+  * {
+    box-sizing: border-box
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
   .navbar {
     width: 100%;
     background-color: rgb(100, 149, 237);
     overflow: auto;
   }
-  
+
   .navbar a {
     float: left;
     padding: 12px;
     color: white;
     text-decoration: none;
     font-size: 17px;
-    width: 25%; /* Four links of equal widths */
+    width: 25%;
+    /* Four links of equal widths */
     text-align: center;
   }
-  
+
   .navbar a:hover {
-    background-color: #0047AB;
+    background-color: #000;
   }
-  
+
   .navbar a.active {
-    background-color: #0047AB;
+    background-color: #04AA6D;
   }
-  
+
   @media screen and (max-width: 500px) {
     .navbar a {
       float: none;
@@ -51,7 +57,8 @@
       text-align: left;
     }
   }
-  </style>
+</style>
+
 <body>
   <!-- Naviation Bar at top of page -->
   <div class="navbar">
@@ -62,38 +69,70 @@
   </div>
   <!-- End of Navagation Bar-->
 
+
   <!-- Start of landing page content -->
   <!-- Start of container -->
   <div class="container">
     <h1 class="description-header">National Crime Data 2018-2019</h1>
     <hr class="description-hr" />
- 
-    <h2>Introduction</h2>
-    <p>  The FBI publishes annual reports on the status of law enforcement in the United States. 
-      The report's definitions of specific crimes are considered standard by many American law enforcement agencies. According to the FBI, index crime in the United States includes violent crime and property crime. 
-      Violent crime consists of five criminal offenses: murder and non-negligent manslaughter, rape, robbery, aggravated assault, and gang violence; 
-      property crime consists of burglary, larceny, motor vehicle theft, and arson.</p>
 
-      <p> Basic aspect of a crime considers the offender, the victim, type of crime, severity and level, and location. 
-      These are the basic questions asked by law enforcement when first investigating any situation. This information is formatted into a government record by a police arrest report, also known as an incident report. 
-      These forms lay out all the information needed to put the crime in the system and it provides a strong outline for further law enforcement agents to review. </p>
-    <p>Our map and visualizations graphically depict the FBI crime data set spanning from 2018-2019.</p>
-    
-  <!-- The div that holds our map -->
-  <!-- <div class="row">
+    <style>
+      {
+        box-sizing: border-box;
+      }
+
+      /* Set additional styling options for the columns*/
+      .column {
+        float: left;
+        width: 50%;
+      }
+
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+    <div class="row">
+      <div class="column">
+
+
+        <h2>Introduction</h2>
+        <p> The FBI publishes annual reports on the status of law enforcement in the United States.
+          The report's definitions of specific crimes are considered standard by many American law enforcement agencies.
+          According to the FBI, index crime in the United States includes violent crime and property crime.
+          Violent crime consists of five criminal offenses: murder and non-negligent manslaughter, rape, robbery,
+          aggravated
+          assault, and gang violence;
+          property crime consists of burglary, larceny, motor vehicle theft, and arson.</p>
+
+        <p> Basic aspect of a crime considers the offender, the victim, type of crime, severity and level, and location.
+          These are the basic questions asked by law enforcement when first investigating any situation. This
+          information is
+          formatted into a government record by a police arrest report, also known as an incident report.
+          These forms lay out all the information needed to put the crime in the system and it provides a strong outline
+          for
+          further law enforcement agents to review. </p>
+        <p>Our map and visualizations graphically depict the FBI crime data set spanning from 2018-2019.</p>
+      </div>
+      <!-- The div that holds our map -->
+      <!-- <div class="row">
         <div class="col-md-12"> -->
-          <h2>National Crime Map</h2>
-  <div class="mapcontainer" style="width:700px; height:700px; margin:left">
-    <select onchange="heatmapyearchange(this.value)"> 
-      <option value="2018">2018</option>
-      <option value="2019">2019</option>
+      <div class="column">
+        <h2>National Crime Map</h2>
+        <div class="mapcontainer" style="width:700px; height:700px; margin:left">
+          <select onchange="heatmapyearchange(this.value)">
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
 
-    </select>
-  <div id="mapid"></div>
+          </select>
+          <div id="mapid"></div>
 
+        </div>
+      </div>
+    </div>
   </div>
 
- 
 
   <!-- Start of footer -->
   <footer class="footer navbar-fixed-bottom">
