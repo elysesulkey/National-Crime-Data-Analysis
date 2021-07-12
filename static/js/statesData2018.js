@@ -1,4 +1,4 @@
-var statesData2019 = {
+var statesData2018 = {
     "type": "FeatureCollection",
     "features": [
         {
