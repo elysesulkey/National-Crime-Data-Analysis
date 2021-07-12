@@ -72,7 +72,7 @@ function OptionMenu(selectedYear, selectedState) {
         }
        },
        layout = {
-       title: 'Average Reported Crime by Type',
+       title: '<b> Average Reported Crime by Type',
        xaxis: {title: 'Average # Crimes Reported'},
        yaxis: {title: 'Crime Category', automargin: true}
        };
