@@ -42,8 +42,13 @@ def d3viz():
     return render_template("d3viz.html")
 
 @app.route('/map')
-def map():
-    return render_template("ImTheMap.html")
+@app.route('/map/<year>')
+def map(year="2019"):
+    if year == "2019":
+        unselected_year="2018"
+    else:
+        unselected_year="2019"
+    return render_template("ImTheMap.html",year_selected=year,unselected_year=unselected_year)
 
 @app.route('/api/notes/postgres')
 def note_postgres():

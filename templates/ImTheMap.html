@@ -9,6 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="stylesheet" href="/static/css/navbar.css" />
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   
@@ -23,10 +24,16 @@
     <a class="nav-link" href="/visualizations">Visualizations</a>
     <a class="nav-link" href="/aboutus">About Us</a>
     <a class="nav-link" href="/resources">Resources</a>
- 
+  </div> 
     
   <!-- The div that holds our map -->
   <div id="mapid"></div>
+
+  <select onchange="heatmapyearchange(this.value)">
+            
+    <option id="selected_year" value="{{selected_year}}">{{selected_year}}</option>
+    <option id="unselected_year" value="{{unselected_year}}">{{unselected_year}}</option>
+  </select>
 
   <!-- Javascript Imports -->
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
