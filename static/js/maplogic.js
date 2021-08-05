@@ -120,8 +120,8 @@ function buildHeatMap(yearData, year) {
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + getColor(grades[i] + .3) + '"></i> ' +
-                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+                '<div style="margin-top: 1px;"><i style="background:' + getColor(grades[i] + .3) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</div><br>' : '+');
         }
 
         return div;
@@ -140,18 +140,22 @@ function buildHeatMap(yearData, year) {
 
     geojson = L.geoJson(yearData, { style: style, onEachFeature: onEachFeature }).addTo(map);
 }
-buildHeatMap(statesData2019, "2019")
+var d3yearSelected = d3.select("#yearselection").property("value")
+if (d3yearSelected == 2019) {
+    yearData = statesData2019
+}
+if (d3yearSelected == 2018) {
+    yearData = statesData2018
+}
+buildHeatMap(yearData, `${d3yearSelected}`)
+
 function heatmapyearchange(yearSelected) {
     // d3.select("#mapid").html("")
     var yearData;
     console.log(yearSelected)
-    // if (yearSelected == 2019) {
-    //     yearData = statesData2019
-    // }
-    // else {
-    //     yearData = statesData2018
-    // }
-    buildHeatMap(statesData2018, "2018")
+    var heatmapyearlink = `/map/${yearSelected}`
+    window.location.href = heatmapyearlink
+    window.location.replace(heatmapyearlink)
 }
 
 

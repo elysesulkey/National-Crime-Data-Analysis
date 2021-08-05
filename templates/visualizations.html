@@ -1,99 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Crime Analysis Dashboard</title>
+{% set active_page = "visualizations" %}
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- D3 Stylesheet -->
+{% block content %}
+<link rel="stylesheet" href="/static/css/visualizations.css" />
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 jumbotron text-center">
+      <h1>Crime Analysis Dashboard</h1>
+      <p>Use the interactive charts below to explore the dataset</p>
+    </div>
+  </div>
+  <div class="row" id="vizdiv">
+    <div class="col-md-2">
+      <div class="well">
+        <h5>Year</h5>
+        <select id="selectedYear" onchange="yearChanged(this.value)"></select>
+        <h5>State</h5>
+        <select id="selectedState"></select>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Reported Crime Averages</h3>
+        </div>
+        <div id="ReportInfo" class="panel-body"></div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div id="bar"></div>
 
-  <link rel="stylesheet" href="static/css/style.css">
-  <link rel="stylesheet" href="static/css/d3Style.css">
-  <link rel="stylesheet" href="/static/css/navbar.css" />
+      <div id="gauge"></div>
 
 
-</head>
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </div>
+    <div class="col-md-5">
 
-
-<body>
-
-  <div class="navbar">
-    <a class="navbar-brand" style="background-color: rgb(100, 149, 237);" href="/">Home</a>
-    <a class="nav-link" href="/visualizations">Visualizations</a>
-    <a class="nav-link" href="/aboutus">About Us</a>
-    <a class="nav-link" href="/resources">Resources</a>
-
+      <h3 style="text-align: center;" id="scattertitle"><b>National Crime Average Standardized by Population</b></h3>
+      <div id="scatter"></div>
+    </div>
 
   </div>
+</div>
 
-  <!-- Naviation Bar at top of page -->
-
-  <!-- End of Navagation Bar-->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Crime Analysis Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
-      </div>
-    </div>
-    <div class="row" id="vizdiv">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Year</h5>
-          <select id="selectedYear" onchange="yearChanged(this.value)"></select>
-          <h5>State</h5>
-          <select id="selectedState"></select>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Reported Crime Averages</h3>
-          </div>
-          <div id="ReportInfo" class="panel-body"></div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-
-        <div id="gauge"></div>
-
-
-      </div>
-      <div class="col-md-5">
-
-        <h3 style="text-align: center;" id="scattertitle"><b>National Crime Average Standardized by Population</b></h3>
-        <div id="scatter"></div>
-      </div>
-
-      <!-- <div class="row">
-      <div class="col-md-8">
-      
-      </div>
-    </div> -->
-    </div>
-
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
-
-    <script src="/static/js/app.js"></script>
-    <script src="/static/js/app2.js"></script>
-
-    <!-- Start of footer -->
-    <footer class="footer navbar-fixed-bottom">
-      <div class="two-toned-footer-color"></div>
-      <p class="text-muted text-muted-footer text-center">
-        &copy; Copyright USS Struggle 2021
-      </p>
-    </footer>
-
-
-</body>
-
-</html>
+{% endblock %}

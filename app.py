@@ -48,7 +48,7 @@ def map(year="2019"):
         unselected_year="2018"
     else:
         unselected_year="2019"
-    return render_template("ImTheMap.html",year_selected=year,unselected_year=unselected_year)
+    return render_template("ImTheMap.html",selected_year=year,unselected_year=unselected_year)
 
 @app.route('/api/notes/postgres')
 def note_postgres():

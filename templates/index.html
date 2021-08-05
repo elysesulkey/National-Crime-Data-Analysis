@@ -1,129 +1,61 @@
-<!DOCTYPE html>
-<html lang="en-us">
+{% extends "base.html" %}
 
-<head>
+{% set active_page = "home" %}
 
-  <title>Crime Analysis Dashboard</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  <link rel="stylesheet" href="/static/css/styles.css" />
-  <link rel="stylesheet" href="static/css/d3Style.css">
-  <link rel="stylesheet" href="/static/css/navbar.css" />
+{% block content %}
 
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<!-- Start of landing page content -->
+<!-- Start of container -->
+<div class="container">
+  <h1 class="description-header">National Crime Data 2018-2019</h1>
+  <hr class="description-hr" />
 
-</head>
+  <style>
+    {
+      box-sizing: border-box;
+    }
 
+    /* Set additional styling options for the columns*/
+    .column {
+      float: left;
+      width: 50%;
+    }
 
-
-<body>
-  <!-- Naviation Bar at top of page -->
-  <div class="navbar">
-    <a class="navbar-brand" style="background-color: rgb(100, 149, 237);" href="/">Home</a>
-    <a class="nav-link" href="/visualizations">Visualizations</a>
-    <a class="nav-link" href="/aboutus">About Us</a>
-    <a class="nav-link" href="/resources">Resources</a>
-  </div>
-  <!-- End of Navagation Bar-->
-
-
-  <!-- Start of landing page content -->
-  <!-- Start of container -->
-  <div class="container">
-    <h1 class="description-header">National Crime Data 2018-2019</h1>
-    <hr class="description-hr" />
-
-    <style>
-      {
-        box-sizing: border-box;
-      }
-
-      /* Set additional styling options for the columns*/
-      .column {
-        float: left;
-        width: 50%;
-      }
-
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-    </style>
-    <div class="row">
-      <div class="column">
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+  <div class="row">
+    <div class="column">
 
 
-        <h2>Introduction</h2>
-        <p> The FBI publishes annual reports on the status of law enforcement in the United States.
-          The report's definitions of specific crimes are considered standard by many American law enforcement agencies.
-          According to the FBI, index crime in the United States includes violent crime and property crime.
-          Violent crime consists of five criminal offenses: murder and non-negligent manslaughter, rape, robbery,
-          aggravated
-          assault, and gang violence;
-          property crime consists of burglary, larceny, motor vehicle theft, and arson.</p>
+      <h2>Introduction</h2>
+      <p> The FBI publishes annual reports on the status of law enforcement in the United States.
+        The report's definitions of specific crimes are considered standard by many American law enforcement agencies.
+        According to the FBI, index crime in the United States includes violent crime and property crime.
+        Violent crime consists of five criminal offenses: murder and non-negligent manslaughter, rape, robbery,
+        aggravated
+        assault, and gang violence;
+        property crime consists of burglary, larceny, motor vehicle theft, and arson.</p>
 
-        <p> Basic aspect of a crime considers the offender, the victim, type of crime, severity and level, and location.
-          These are the basic questions asked by law enforcement when first investigating any situation. This
-          information is
-          formatted into a government record by a police arrest report, also known as an incident report.
-          These forms lay out all the information needed to put the crime in the system and it provides a strong outline
-          for
-          further law enforcement agents to review. </p>
-        <p>Our map and visualizations graphically depict the FBI crime data set spanning from 2018-2019.</p>
-      </div>
-      <!-- The div that holds our map -->
-      <!-- <div class="row">
+      <p> Basic aspect of a crime considers the offender, the victim, type of crime, severity and level, and location.
+        These are the basic questions asked by law enforcement when first investigating any situation. This
+        information is
+        formatted into a government record by a police arrest report, also known as an incident report.
+        These forms lay out all the information needed to put the crime in the system and it provides a strong outline
+        for
+        further law enforcement agents to review. </p>
+      <p>Our map and visualizations graphically depict the FBI crime data set spanning from 2018-2019.</p>
+    </div>
+    <!-- The div that holds our map -->
+    <!-- <div class="row">
         <div class="col-md-12"> -->
-      <div class="column">
-        <h2>National Crime Map</h2>
-        <div class="mapcontainer" style="width:700px; height:700px; margin:left">
-          <select onchange="heatmapyearchange(this.value)">
-            
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-          </select>
-          <div id="mapid"></div>
-
-        </div>
-      </div>
+    <div class="column">
     </div>
   </div>
+</div>
 
 
-  <!-- Start of footer -->
-  <footer class="footer navbar-fixed-bottom">
-    <div class="two-toned-footer-color"></div>
-    <p class="text-muted text-muted-footer text-center">
-      &copy; Copyright USS Struggle 2021
-    </p>
-  </footer>
-  <!-- End of footer -->
-  <!-- Javascript Imports -->
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
-
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script type="text/javascript" src="/static/js/config.js"></script>
-  <script type="text/javascript" src="/static/js/statesdata.js"></script>
-  <script type="text/javascript" src="/static/js/statesData2018.js"></script>
-  <script type="text/javascript" src="/static/js/statesData2019.js"></script>
-  <script type="text/javascript" src="/static/js/maplogic.js"></script>
-
-  <!-- jQuery library -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <!-- Popper JS-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-    crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+{% endblock %}
